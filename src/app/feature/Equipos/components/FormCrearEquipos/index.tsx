@@ -55,6 +55,7 @@ export const FormCrearEquipos = ({addNewEquipment}:PropsFormEquipos) => {
             >Empieza Creando Un Equipo</Typography>
            
             <Form
+                role='form'
                 onSubmit={handleSubmit}
             >
                 <Typography
@@ -83,10 +84,11 @@ export const FormCrearEquipos = ({addNewEquipment}:PropsFormEquipos) => {
                         value={values.nombre}
                     />
                 </FormControl>
-                {errors.codigo && touched.codigo && <SpanError>{errors.codigo}</SpanError> }
+                {errors.nombre && touched.nombre && <SpanError>{errors.nombre}</SpanError> }
                 <FormControl>
                     <Label>Ubicacion</Label>
                     <Select
+                        role='ubicacion'
                         name='ubicacion'
                         onChange={handleChange}
                         value={values.ubicacion}
@@ -111,9 +113,10 @@ export const FormCrearEquipos = ({addNewEquipment}:PropsFormEquipos) => {
                         </option>
                     </Select>
                 </FormControl>
-                {errors.codigo && touched.codigo && <SpanError>{errors.codigo}</SpanError> }
+                {errors.ubicacion && touched.ubicacion && <SpanError>{errors.ubicacion}</SpanError> }
                 <Button
                     type='submit'
+                    role='button'
                 >Ingresar</Button>
             </Form>
         </div>

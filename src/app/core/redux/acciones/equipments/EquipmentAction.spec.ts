@@ -1,10 +1,11 @@
 import { addNewEquipment, addNewEquipmentAsync } from './EquipmentActions';
 import { newEquipment, newEquipmentID,  } from '../../../../shared/fixture/testData';
 import { ADD_NEW_EQUIPMENT } from './EquipmentTypes';
+import { initialState} from '../../reductores/Equipment/EquipmentReducer';
 import { mockAxios } from '../../mocks/mockAxios';
 import { mockStore } from '../../mocks/mockstore';
 
-const store = mockStore({});
+const store = mockStore(initialState);
 
 describe('testing equipment actions', () => {
     it('should be match with the object', () => {

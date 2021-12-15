@@ -1,5 +1,8 @@
+import thunk, { ThunkDispatch } from 'redux-thunk';
+import { ActionsEquipments } from '../acciones/equipments/EquipmentTypes';
+import { StateEquipmet } from '../reductores/Equipment/EquipmentReducer';
 import createMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 
 const middlewares = [thunk];
-export const mockStore = createMockStore(middlewares);
+type DispatchExts = ThunkDispatch<StateEquipmet, void, ActionsEquipments>;
+export const mockStore = createMockStore<StateEquipmet,DispatchExts>(middlewares);

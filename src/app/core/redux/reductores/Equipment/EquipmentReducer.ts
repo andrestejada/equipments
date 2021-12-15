@@ -5,7 +5,7 @@ import { Equipment } from '../../../../feature/Equipos/models/Equipments';
 export interface StateEquipmet{
     allEquipments:Equipment[]
 }
-const initialState:StateEquipmet={
+export const initialState:StateEquipmet={
     allEquipments:[]
 };
 

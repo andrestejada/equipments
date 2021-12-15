@@ -1,0 +1,345 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Name of the group should render corrrectly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <h2
+          style="text-align: center; margin: 0.8rem 0px;"
+        >
+          Empieza Creando Un Equipo
+        </h2>
+        <form
+          class="sc-AxirZ iXEpzL"
+          role="form"
+        >
+          <h3
+            style="margin: 0.8rem 0px;"
+          >
+            Ingresa los datos
+          </h3>
+          <hr />
+          <div
+            class="sc-AxiKw drioVU"
+          >
+            <label
+              class="sc-AxhUy iSHKoT"
+            >
+              Codigo
+            </label>
+            <input
+              class="sc-AxhCb fiLrWf"
+              name="codigo"
+              placeholder="Ingresa un codigo"
+              type="number"
+              value=""
+            />
+          </div>
+          <div
+            class="sc-AxiKw drioVU"
+          >
+            <label
+              class="sc-AxhUy iSHKoT"
+            >
+              Nombre Equipo
+            </label>
+            <input
+              class="sc-AxhCb fiLrWf"
+              name="nombre"
+              placeholder="Ingresa un nombre para el equipo"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="sc-AxiKw drioVU"
+          >
+            <label
+              class="sc-AxhUy iSHKoT"
+            >
+              Ubicacion
+            </label>
+            <select
+              class="sc-AxgMl cCjxPQ"
+              name="ubicacion"
+              role="ubicacion"
+            >
+              <option
+                hidden=""
+                value=""
+              >
+                Selecciona una ubicación
+              </option>
+              <option
+                value="laboratorio"
+              >
+                Laboratorio
+              </option>
+              <option
+                value="fabrica"
+              >
+                Fabrica
+              </option>
+              <option
+                value="almacen"
+              >
+                Almacen
+              </option>
+            </select>
+          </div>
+          <button
+            class="sc-AxjAm izVqxJ"
+            role="button"
+            type="submit"
+          >
+            Ingresar
+          </button>
+        </form>
+      </div>
+    </div>
+    <div>
+      <div>
+        <h2
+          style="text-align: center; margin: 0.8rem 0px;"
+        >
+          Empieza Creando Un Equipo
+        </h2>
+        <form
+          class="sc-AxirZ iXEpzL"
+          role="form"
+        >
+          <h3
+            style="margin: 0.8rem 0px;"
+          >
+            Ingresa los datos
+          </h3>
+          <hr />
+          <div
+            class="sc-AxiKw drioVU"
+          >
+            <label
+              class="sc-AxhUy iSHKoT"
+            >
+              Codigo
+            </label>
+            <input
+              class="sc-AxhCb fiLrWf"
+              name="codigo"
+              placeholder="Ingresa un codigo"
+              type="number"
+              value=""
+            />
+          </div>
+          <div
+            class="sc-AxiKw drioVU"
+          >
+            <label
+              class="sc-AxhUy iSHKoT"
+            >
+              Nombre Equipo
+            </label>
+            <input
+              class="sc-AxhCb fiLrWf"
+              name="nombre"
+              placeholder="Ingresa un nombre para el equipo"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="sc-AxiKw drioVU"
+          >
+            <label
+              class="sc-AxhUy iSHKoT"
+            >
+              Ubicacion
+            </label>
+            <select
+              class="sc-AxgMl cCjxPQ"
+              name="ubicacion"
+              role="ubicacion"
+            >
+              <option
+                hidden=""
+                value=""
+              >
+                Selecciona una ubicación
+              </option>
+              <option
+                value="laboratorio"
+              >
+                Laboratorio
+              </option>
+              <option
+                value="fabrica"
+              >
+                Fabrica
+              </option>
+              <option
+                value="almacen"
+              >
+                Almacen
+              </option>
+            </select>
+          </div>
+          <button
+            class="sc-AxjAm izVqxJ"
+            role="button"
+            type="submit"
+          >
+            Ingresar
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <h2
+        style="text-align: center; margin: 0.8rem 0px;"
+      >
+        Empieza Creando Un Equipo
+      </h2>
+      <form
+        class="sc-AxirZ iXEpzL"
+        role="form"
+      >
+        <h3
+          style="margin: 0.8rem 0px;"
+        >
+          Ingresa los datos
+        </h3>
+        <hr />
+        <div
+          class="sc-AxiKw drioVU"
+        >
+          <label
+            class="sc-AxhUy iSHKoT"
+          >
+            Codigo
+          </label>
+          <input
+            class="sc-AxhCb fiLrWf"
+            name="codigo"
+            placeholder="Ingresa un codigo"
+            type="number"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-AxiKw drioVU"
+        >
+          <label
+            class="sc-AxhUy iSHKoT"
+          >
+            Nombre Equipo
+          </label>
+          <input
+            class="sc-AxhCb fiLrWf"
+            name="nombre"
+            placeholder="Ingresa un nombre para el equipo"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-AxiKw drioVU"
+        >
+          <label
+            class="sc-AxhUy iSHKoT"
+          >
+            Ubicacion
+          </label>
+          <select
+            class="sc-AxgMl cCjxPQ"
+            name="ubicacion"
+            role="ubicacion"
+          >
+            <option
+              hidden=""
+              value=""
+            >
+              Selecciona una ubicación
+            </option>
+            <option
+              value="laboratorio"
+            >
+              Laboratorio
+            </option>
+            <option
+              value="fabrica"
+            >
+              Fabrica
+            </option>
+            <option
+              value="almacen"
+            >
+              Almacen
+            </option>
+          </select>
+        </div>
+        <button
+          class="sc-AxjAm izVqxJ"
+          role="button"
+          type="submit"
+        >
+          Ingresar
+        </button>
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
