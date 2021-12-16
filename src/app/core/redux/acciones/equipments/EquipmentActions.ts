@@ -1,10 +1,10 @@
-import {ADD_NEW_EQUIPMENT, ActionsEquipments,  } from './EquipmentTypes';
+import { ADD_NEW_EQUIPMENT, ActionsEquipments, GET_ALL_EQUIPMENTS } from './EquipmentTypes';
+import { Equipment, EquipmentID } from '../../../../feature/Equipos/models/Equipments';
 import { Dispatch } from 'redux';
-import { Equipment } from '../../../../feature/Equipos/models/Equipments';
 import { EquipmentRepository } from '../../../api/equipments.repository';
 
 
-const {addEquipment} = EquipmentRepository;
+const {addEquipment,getAllEquipment} = EquipmentRepository;
 
 export const addNewEquipmentAsync=(equipment:Equipment)=>{
     return  async(dispatch:Dispatch<ActionsEquipments>)=>{
@@ -13,7 +13,19 @@ export const addNewEquipmentAsync=(equipment:Equipment)=>{
     };
 };
 
-export const addNewEquipment=(equip:Equipment):ActionsEquipments=>({
+export const addNewEquipment=(equip:EquipmentID):ActionsEquipments=>({
     type:ADD_NEW_EQUIPMENT,
+    payload:equip
+});
+
+export const getAllEquipmentAsync=()=>{
+    return  async(dispatch:Dispatch<ActionsEquipments>)=>{
+            const {data} = await getAllEquipment();
+            dispatch(getEquipments(data));
+    };
+};
+
+export const getEquipments=(equip:EquipmentID[]):ActionsEquipments=>({
+    type:GET_ALL_EQUIPMENTS,
     payload:equip
 });

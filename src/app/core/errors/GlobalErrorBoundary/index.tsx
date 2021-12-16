@@ -1,26 +1,34 @@
-import * as React from 'react';
-import { ErrorInfo } from 'react';
+import React, { Component, ErrorInfo, ReactNode } from 'react';
 
-export class GlobalErrorBoundary extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    this.state = { hasError: false };
-  }
+interface Props {
+  children: ReactNode;
+}
 
-  static getDerivedStateFromError(error: Error) {
+interface State {
+  hasError: boolean;
+}
+
+export class GlobalErrorBoundary extends Component<Props, State> {
+  public state: State = {
+    hasError: false
+  };
+
+  public static getDerivedStateFromError(_: Error): State {
+    // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Log error to metrics
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    //console.error('Uncaught error:', error, errorInfo);
   }
 
-  render() {
+  public render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Algo salió mal.</h1>;
+      return <h1>Sorry.. there was an error</h1>;
     }
 
     return this.props.children;
   }
 }
+
+export default GlobalErrorBoundary;

@@ -6,6 +6,7 @@ interface CardProps{
     codigo: number | '';
     nombre: string;
     ubicacion: string;
+    id:number;
 }
 export const CardEquipos = ({codigo,nombre,ubicacion}:CardProps) => {
     return (

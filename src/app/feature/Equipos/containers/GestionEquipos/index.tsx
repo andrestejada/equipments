@@ -1,13 +1,19 @@
 import { Container, Row } from './styles';
+import { Equipment, EquipmentID } from '../../models/Equipments';
 import { ConsultarEquipos } from '../../components/ConsultarEquipos/index';
-import { Equipment } from '../../models/Equipments';
 import { FormCrearEquipos } from '../../components/FormCrearEquipos';
 import React from 'react';
+import { useEffect } from 'react';
 
 interface Props{
-  addNewEquipment:(equip:Equipment)=> void
+  addNewEquipment:(equip:Equipment)=> void;
+  getAllEquipments:()=> void;
+  allEquipments:EquipmentID[];
 }
-export const GestionEquipos= ({addNewEquipment}:Props) => {
+export const GestionEquipos= ({addNewEquipment,getAllEquipments,allEquipments}:Props) => {
+  useEffect(() => {
+    getAllEquipments();
+  }, [getAllEquipments]);
   return (
     <Container>
       <Row>
@@ -16,7 +22,9 @@ export const GestionEquipos= ({addNewEquipment}:Props) => {
         />
       </Row>
       <Row>
-        <ConsultarEquipos/>
+        <ConsultarEquipos
+          allEquipments={allEquipments}
+        />
       </Row>
     </Container>
   );

@@ -1,7 +1,7 @@
 
+import { addNewEquipmentAsync, getAllEquipmentAsync } from '../../../core/redux/acciones/equipments/EquipmentActions';
 import { EstadoGeneral } from '../../../core/redux/modelo/EstadoGeneral';
 import { GestionEquipos } from '../containers/GestionEquipos';
-import { addNewEquipmentAsync } from '../../../core/redux/acciones/equipments/EquipmentActions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state:EstadoGeneral) => {
@@ -10,6 +10,7 @@ const mapStateToProps = (state:EstadoGeneral) => {
 
 const mapDispatchToProps={
   addNewEquipment:addNewEquipmentAsync,
+  getAllEquipments:getAllEquipmentAsync
 };
 
 export const ProveedorGestionEquipos = connect(mapStateToProps,mapDispatchToProps)(GestionEquipos);

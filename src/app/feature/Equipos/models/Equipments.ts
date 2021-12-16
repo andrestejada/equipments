@@ -3,3 +3,7 @@ export interface Equipment {
   nombre: string;
   ubicacion: string;
 }
+
+export interface EquipmentID extends Equipment{
+  id:number;
+}

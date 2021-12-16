@@ -1,16 +1,16 @@
 import { CardContainer } from '../../../../shared/components/CardContainer/index';
 import { CardEquipos } from './CardEquipos/index';
 import { CardList } from '../../../../shared/components/CardList/CardList';
-import { Equipment } from '../../models/Equipments';
+import { EquipmentID } from '../../models/Equipments';
 import React from 'react';
+import { SinEquipos } from '../SinEquipos/index';
 import { Typography } from 'app/shared/components/Typography';
 
-export const ConsultarEquipos = () => {
-    const equipments:Equipment[] = [
-        {codigo:123,nombre:'bascula',ubicacion:'fabrica'},
-        {codigo:456,nombre:'centrifuga',ubicacion:'laboratorio'},
-        {codigo:789,nombre:'motor',ubicacion:'almacen'},
-    ];
+interface Props{
+    allEquipments:EquipmentID[]
+}
+export const ConsultarEquipos = ({allEquipments}:Props) => {
+    
     return (
         <>
             <Typography 
@@ -20,12 +20,15 @@ export const ConsultarEquipos = () => {
             <CardContainer>
                 <CardList>
                     {
-                        equipments.map((equip)=>(
+                        allEquipments.length
+                        ?
+                        allEquipments.map((equip)=>(
                             <CardEquipos
                                 key={equip.codigo}
                                 {...equip}
                             />
                         ))
+                        :<SinEquipos/>
                     }
                 </CardList>
             </CardContainer>
