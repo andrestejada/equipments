@@ -8,9 +8,10 @@ import { useEffect } from 'react';
 interface Props{
   addNewEquipment:(equip:Equipment)=> void;
   getAllEquipments:()=> void;
+  deleteEquipment:(id:number)=>void;
   allEquipments:EquipmentID[];
 }
-export const GestionEquipos= ({addNewEquipment,getAllEquipments,allEquipments}:Props) => {
+export const GestionEquipos= ({addNewEquipment,getAllEquipments,allEquipments,deleteEquipment}:Props) => {
   useEffect(() => {
     getAllEquipments();
   }, [getAllEquipments]);
@@ -24,6 +25,7 @@ export const GestionEquipos= ({addNewEquipment,getAllEquipments,allEquipments}:P
       <Row>
         <ConsultarEquipos
           allEquipments={allEquipments}
+          deleteEquipment={deleteEquipment}
         />
       </Row>
     </Container>

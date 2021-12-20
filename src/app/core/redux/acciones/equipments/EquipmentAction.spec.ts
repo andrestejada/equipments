@@ -1,5 +1,12 @@
-import { ADD_NEW_EQUIPMENT, GET_ALL_EQUIPMENTS } from './EquipmentTypes';
-import { addNewEquipment, addNewEquipmentAsync, getAllEquipmentAsync ,getEquipments } from './EquipmentActions';
+import { ADD_NEW_EQUIPMENT, DELETE_EQUIPMENT,GET_ALL_EQUIPMENTS } from './EquipmentTypes';
+import {
+  addNewEquipment,
+  addNewEquipmentAsync,
+  deleteEquipmentAsync,
+  deleteEquipmentById,
+  getAllEquipmentAsync,
+  getEquipments,
+} from './EquipmentActions';
 import { newEquipment, newEquipmentID,  } from '../../../../shared/fixture/testData';
 import { initialState} from '../../reductores/Equipment/EquipmentReducer';
 import { mockAxios } from '../../mocks/mockAxios';
@@ -51,5 +58,26 @@ describe('testing equipment actions', () => {
             type:GET_ALL_EQUIPMENTS,
             payload:[newEquipmentID]
         });
+    });
+
+    it('testing the deleteEquipment fn should be return the correct object', () => {
+        const action = deleteEquipmentById(2);
+        expect(action).toEqual({
+            type:DELETE_EQUIPMENT,
+            payload:2
+        });
+    });
+
+    it('should be delete the equipment by spefic id', async() => {
+        const id = 2;
+        mockAxios.onDelete(`/equipments/${id}`).reply(200);
+        await store.dispatch( deleteEquipmentAsync(id) );
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type:DELETE_EQUIPMENT,
+            payload:2
+        });
+        expect(actions[0].payload).toEqual(expect.any(Number));
+
     });
 });

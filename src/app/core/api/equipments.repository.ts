@@ -3,5 +3,6 @@ import { axiosIntance } from '../config/AxiosConfig';
 
 export const EquipmentRepository={
     addEquipment:(equipment:Equipment)=>axiosIntance.post('/equipments',equipment),
-    getAllEquipment:()=>axiosIntance.get('/equipments')
+    getAllEquipment:()=>axiosIntance.get('/equipments'),
+    deleteEquipment:(id:number)=>axiosIntance.delete(`/equipments/${id}`)
 };

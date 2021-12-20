@@ -7,8 +7,10 @@ interface CardProps{
     nombre: string;
     ubicacion: string;
     id:number;
+    deleteEquipment:(id:number)=>void;
+
 }
-export const CardEquipos = ({codigo,nombre,ubicacion}:CardProps) => {
+export const CardEquipos = ({codigo,nombre,ubicacion,deleteEquipment,id}:CardProps) => {
     return (
         <>
         <CardBox>
@@ -25,7 +27,10 @@ export const CardEquipos = ({codigo,nombre,ubicacion}:CardProps) => {
                 <CardContent>{ubicacion}</CardContent>
             </CardSecction>
             <CardSecction>
-                <Button>Eliminar</Button>
+                <Button
+                    role='button'
+                    onClick={()=>deleteEquipment(id)}
+                >Eliminar</Button>
             </CardSecction>
         </CardBox>
             

@@ -7,9 +7,10 @@ import { SinEquipos } from '../SinEquipos/index';
 import { Typography } from 'app/shared/components/Typography';
 
 interface Props{
-    allEquipments:EquipmentID[]
+    allEquipments:EquipmentID[];
+    deleteEquipment:(id:number)=>void;
 }
-export const ConsultarEquipos = ({allEquipments}:Props) => {
+export const ConsultarEquipos = ({allEquipments,deleteEquipment}:Props) => {
     
     return (
         <>
@@ -25,6 +26,7 @@ export const ConsultarEquipos = ({allEquipments}:Props) => {
                         allEquipments.map((equip)=>(
                             <CardEquipos
                                 key={equip.codigo}
+                                deleteEquipment={deleteEquipment}
                                 {...equip}
                             />
                         ))

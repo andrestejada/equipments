@@ -1,4 +1,4 @@
-import { ADD_NEW_EQUIPMENT, ActionsEquipments, GET_ALL_EQUIPMENTS } from '../../acciones/equipments/EquipmentTypes';
+import { ADD_NEW_EQUIPMENT,ActionsEquipments,DELETE_EQUIPMENT, GET_ALL_EQUIPMENTS,  } from '../../acciones/equipments/EquipmentTypes';
 import {  EquipmentID } from '../../../../feature/Equipos/models/Equipments';
 
 
@@ -20,6 +20,11 @@ export const equipmentReducer =(state:StateEquipmet=initialState,action:ActionsE
             return{
                 ...state,
                 allEquipments:action.payload
+            };
+        case DELETE_EQUIPMENT:            
+            return{
+                ...state,
+                allEquipments: state.allEquipments.filter( (equip)=> equip.id !== action.payload )
             };
         default:
             return state;
