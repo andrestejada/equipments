@@ -5,13 +5,24 @@ import { FormCrearEquipos } from '../../components/FormCrearEquipos';
 import React from 'react';
 import { useEffect } from 'react';
 
-interface Props{
-  addNewEquipment:(equip:Equipment)=> void;
-  getAllEquipments:()=> void;
-  deleteEquipment:(id:number)=>void;
-  allEquipments:EquipmentID[];
+interface Props {
+  addNewEquipment: (equip: Equipment) => void;
+  getAllEquipments: () => void;
+  deleteEquipment: (id: number) => void;
+  selectEquipment: (id: number) => void;
+  editEquipment:(equipment:EquipmentID)=>void;
+  allEquipments: EquipmentID[];
+  equipmentSelected: EquipmentID[];
 }
-export const GestionEquipos= ({addNewEquipment,getAllEquipments,allEquipments,deleteEquipment}:Props) => {
+export const GestionEquipos = ({
+  addNewEquipment,
+  getAllEquipments,
+  allEquipments,
+  deleteEquipment,
+  equipmentSelected,
+  selectEquipment,
+  editEquipment
+}: Props) => {
   useEffect(() => {
     getAllEquipments();
   }, [getAllEquipments]);
@@ -20,12 +31,15 @@ export const GestionEquipos= ({addNewEquipment,getAllEquipments,allEquipments,de
       <Row>
         <FormCrearEquipos
           addNewEquipment={addNewEquipment}
+          equipmentSelected={equipmentSelected}
+          editEquipment={editEquipment}
         />
       </Row>
       <Row>
         <ConsultarEquipos
           allEquipments={allEquipments}
           deleteEquipment={deleteEquipment}
+          selectEquipment={selectEquipment}
         />
       </Row>
     </Container>

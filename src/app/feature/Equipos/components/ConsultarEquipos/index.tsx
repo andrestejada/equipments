@@ -9,8 +9,10 @@ import { Typography } from 'app/shared/components/Typography';
 interface Props{
     allEquipments:EquipmentID[];
     deleteEquipment:(id:number)=>void;
+    selectEquipment:(id: number)=>void;
+
 }
-export const ConsultarEquipos = ({allEquipments,deleteEquipment}:Props) => {
+export const ConsultarEquipos = ({allEquipments,deleteEquipment,selectEquipment}:Props) => {
     
     return (
         <>
@@ -27,6 +29,7 @@ export const ConsultarEquipos = ({allEquipments,deleteEquipment}:Props) => {
                             <CardEquipos
                                 key={equip.codigo}
                                 deleteEquipment={deleteEquipment}
+                                selectEquipment={selectEquipment}
                                 {...equip}
                             />
                         ))

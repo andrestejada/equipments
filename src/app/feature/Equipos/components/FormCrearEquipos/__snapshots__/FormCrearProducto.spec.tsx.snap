@@ -18,7 +18,7 @@ Object {
           <h3
             style="margin: 0.8rem 0px;"
           >
-            Ingresa los datos
+            Ingresar los datos
           </h3>
           <hr />
           <div
@@ -90,7 +90,7 @@ Object {
             </select>
           </div>
           <button
-            class="sc-AxjAm izVqxJ"
+            class="sc-AxjAm jzxovO"
             role="button"
             type="submit"
           >
@@ -113,7 +113,7 @@ Object {
           <h3
             style="margin: 0.8rem 0px;"
           >
-            Ingresa los datos
+            Ingresar los datos
           </h3>
           <hr />
           <div
@@ -185,7 +185,7 @@ Object {
             </select>
           </div>
           <button
-            class="sc-AxjAm izVqxJ"
+            class="sc-AxjAm jzxovO"
             role="button"
             type="submit"
           >
@@ -209,7 +209,7 @@ Object {
         <h3
           style="margin: 0.8rem 0px;"
         >
-          Ingresa los datos
+          Ingresar los datos
         </h3>
         <hr />
         <div
@@ -281,7 +281,7 @@ Object {
           </select>
         </div>
         <button
-          class="sc-AxjAm izVqxJ"
+          class="sc-AxjAm jzxovO"
           role="button"
           type="submit"
         >

@@ -29,5 +29,6 @@ export const stateWithData:StateEquipmet={
             ubicacion:'almacen',
             id:1     
         }
-    ]
+    ],
+    equipmentSelected:[]
 };

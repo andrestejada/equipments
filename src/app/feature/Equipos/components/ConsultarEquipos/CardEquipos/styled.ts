@@ -23,3 +23,12 @@ export const CardContent= styled.p`
     margin-left: 0.3rem;
     text-transform: capitalize;
 `;
+
+export const BtnSecction =  styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    button{
+        width: 48%;
+    }
+`;

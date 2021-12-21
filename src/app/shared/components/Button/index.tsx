@@ -13,12 +13,16 @@ export const Button = styled.button`
   text-align: center;
   transition:0.5s ease;
   width: 100%;
-  
   &[disabled] {
     opacity: 0.3;
   }
   &:hover{
     background: #ff913d;
 
+  }
+
+  &[role="edit"]{
+    background-color: #3e8ace;
+    box-shadow: 0px 0px 4px 1px #90b1ce;
   }
 `;

@@ -1,10 +1,16 @@
 {
   "equipments": [
     {
-      "codigo": 789,
+      "codigo": 615,
       "nombre": "Licuadora",
       "ubicacion": "almacen",
-      "id": 3
+      "id": 1
+    },
+    {
+      "codigo": 7894321,
+      "nombre": "Televisor",
+      "ubicacion": "laboratorio",
+      "id": 2
     }
   ]
 }

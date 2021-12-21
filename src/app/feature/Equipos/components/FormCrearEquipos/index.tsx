@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
+import { Equipment, EquipmentID } from '../../models/Equipments';
 import { Button } from '../../../../shared/components/Button/index';
-import { Equipment } from '../../models/Equipments';
 import { Form } from '../../../../shared/components/Form/index';
 import { FormControl } from '../../../../shared/components/FormControl/index';
 import { FormikHelpers } from 'formik/dist/types';
@@ -20,12 +20,18 @@ interface FormValues {
 }
 
 interface PropsFormEquipos{
-    addNewEquipment:(equip:Equipment)=> void
+    addNewEquipment:(equip:Equipment)=> void;
+    editEquipment:(equipment:EquipmentID)=>void;
+    equipmentSelected:EquipmentID[];
 }
 
-export const FormCrearEquipos = ({addNewEquipment}:PropsFormEquipos) => {
-
-
+export const FormCrearEquipos = ({addNewEquipment,equipmentSelected,editEquipment}:PropsFormEquipos) => {
+    const IsEditing = equipmentSelected.length ? true : false ;
+    const editValues:FormValues = {
+        codigo: equipmentSelected[0]?.codigo ,
+        nombre: equipmentSelected[0]?.nombre,
+        ubicacion:equipmentSelected[0]?.ubicacion
+    };
     const initialValues:FormValues={
         codigo:'',
         nombre:'',
@@ -39,20 +45,26 @@ export const FormCrearEquipos = ({addNewEquipment}:PropsFormEquipos) => {
     });
     
     const onSubmit=(values:FormValues,{resetForm}:FormikHelpers<FormValues>)=>{
-        addNewEquipment(values);
+        if(IsEditing){
+            editEquipment({...values,id:equipmentSelected[0].id});
+        }else{
+            addNewEquipment(values);
+        }
         resetForm();
     };
     const {handleSubmit,values,handleChange,touched,errors,handleBlur} = useFormik({
-        initialValues,
+        initialValues: IsEditing ? editValues : initialValues ,
         onSubmit,
         validationSchema,
-    });    
+        enableReinitialize:true
+    });
+    
     return (
         <div>
             <Typography
                 tag='h2'
                 styles={{textAlign:'center'}}
-            >Empieza Creando Un Equipo</Typography>
+            >{IsEditing ? 'Edita el equipo seleccionado': 'Empieza Creando Un Equipo'}</Typography>
            
             <Form
                 role='form'
@@ -60,7 +72,7 @@ export const FormCrearEquipos = ({addNewEquipment}:PropsFormEquipos) => {
             >
                 <Typography
                     tag='h3'
-                >Ingresa los datos</Typography>
+                >{IsEditing ? 'Edita los datos': 'Ingresar los datos'}</Typography>
                 <hr/>
                 <FormControl>
                     <Label>Codigo</Label>
@@ -117,7 +129,7 @@ export const FormCrearEquipos = ({addNewEquipment}:PropsFormEquipos) => {
                 <Button
                     type='submit'
                     role='button'
-                >Ingresar</Button>
+                >{ IsEditing ? 'Editar' : 'Ingresar'}</Button>
             </Form>
         </div>
     );

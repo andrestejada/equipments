@@ -1,4 +1,4 @@
-import { CardBox, CardContent, CardSecction,CardTitle  } from './styled';
+import { BtnSecction, CardBox, CardContent, CardSecction,CardTitle  } from './styled';
 import { Button } from 'app/shared/components/Button';
 import React from 'react';
 
@@ -8,9 +8,10 @@ interface CardProps{
     ubicacion: string;
     id:number;
     deleteEquipment:(id:number)=>void;
+    selectEquipment:(id: number)=>void;
 
 }
-export const CardEquipos = ({codigo,nombre,ubicacion,deleteEquipment,id}:CardProps) => {
+export const CardEquipos = ({codigo,nombre,ubicacion,deleteEquipment,id,selectEquipment}:CardProps) => {
     return (
         <>
         <CardBox>
@@ -26,12 +27,19 @@ export const CardEquipos = ({codigo,nombre,ubicacion,deleteEquipment,id}:CardPro
                 <CardTitle>Ubicación:</CardTitle>
                 <CardContent>{ubicacion}</CardContent>
             </CardSecction>
-            <CardSecction>
-                <Button
-                    role='button'
-                    onClick={()=>deleteEquipment(id)}
-                >Eliminar</Button>
-            </CardSecction>
+            
+                <BtnSecction>
+                    <Button
+                        role='button'
+                        onClick={()=>deleteEquipment(id)}
+                    >Eliminar</Button>
+                    <Button
+                        role='edit'
+                        onClick={()=>selectEquipment(id)}
+                    >Editar</Button>
+                </BtnSecction>
+                
+            
         </CardBox>
             
         </>

@@ -7,11 +7,13 @@ import {render} from '@testing-library/react';
 const addNewEquipment = jest.fn();
 const getAllEquipments = jest.fn();
 const  deleteEquipment = jest.fn();
+const editEquipment = jest.fn();
+const selectEquipment = jest.fn();
 describe('testing <GestionEquipos/>', () => {
     beforeEach(()=>{
         jest.clearAllMocks();
     });
-    it('should be render correctly with dates', () => {
+    it('should be render correctly with equipments', () => {
         
         const wrapperComponent = render(
             <GestionEquipos
@@ -19,12 +21,15 @@ describe('testing <GestionEquipos/>', () => {
                 getAllEquipments={getAllEquipments}
                 allEquipments={[newEquipmentID]}
                 deleteEquipment={deleteEquipment}
+                equipmentSelected={[]}
+                editEquipment={editEquipment}
+                selectEquipment={selectEquipment}
             />
         );
          expect(wrapperComponent.getByText(newEquipmentID.nombre)).toBeInTheDocument(); 
          expect(getAllEquipments).toHaveBeenCalled(); 
     });
-    it('should be render correctly with dates', () => {
+    it('should be render correctly without equipments', () => {
         
         const wrapperComponent = render(
             <GestionEquipos
@@ -32,6 +37,10 @@ describe('testing <GestionEquipos/>', () => {
                 getAllEquipments={getAllEquipments}
                 allEquipments={[]}
                 deleteEquipment={deleteEquipment}
+                editEquipment={editEquipment}
+                equipmentSelected={[]}
+                selectEquipment={selectEquipment}
+
             />
         );
          expect(getAllEquipments).toHaveBeenCalled(); 

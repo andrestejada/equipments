@@ -1,21 +1,26 @@
 import '@testing-library/jest-dom/extend-expect';
-import { fireEvent, prettyDOM, render } from '@testing-library/react';
+import { fireEvent, prettyDOM, render, wait  } from '@testing-library/react';
+import { newEquipment, newEquipmentID } from '../../../../shared/fixture/testData';
 import { FormCrearEquipos } from './index';
 import React from 'react';
-import { newEquipment } from '../../../../shared/fixture/testData';
 
 const addNewEquipment= jest.fn();
+const editEquipment= jest.fn();
 
 describe('Name of the group', () => {
     let wrapperComponent = render(
         <FormCrearEquipos
             addNewEquipment={addNewEquipment}
+            editEquipment={editEquipment}
+            equipmentSelected={[]}
         />
     );
     beforeEach(()=>{
         wrapperComponent = render(
             <FormCrearEquipos
                 addNewEquipment={addNewEquipment}
+                editEquipment={editEquipment}
+                equipmentSelected={[]}
             />
         );
         jest.clearAllMocks();
@@ -49,5 +54,43 @@ describe('Name of the group', () => {
             expect(addNewEquipment).toHaveBeenCalled();        
             expect(addNewEquipment).toHaveBeenCalledWith(newEquipment);   
                
+    });
+
+
+    it('should find the value in the form when exist a equipment selected ', async() => {
+        const wrapperComponent = render(
+            <FormCrearEquipos
+                addNewEquipment={addNewEquipment}
+                editEquipment={editEquipment}
+                equipmentSelected={[newEquipmentID]}
+            />
+        );
+
+       expect(wrapperComponent.getByText('Edita el equipo seleccionado')).toBeInTheDocument();
+       expect(wrapperComponent.getByText('Edita los datos')).toBeInTheDocument();
+       expect(wrapperComponent.getByText('Editar')).toBeInTheDocument();
+       expect(wrapperComponent.getAllByPlaceholderText(/ingresa un codigo/i)[1] ).toHaveValue(newEquipmentID.codigo);      
+       expect(wrapperComponent.getAllByPlaceholderText(/ingresa un nombre para el equipo/i)[1] ).toHaveValue(newEquipmentID.nombre);      
+       expect(wrapperComponent.getAllByRole(/ubicacion/i)[1] ).toHaveValue(newEquipmentID.ubicacion);      
+
+    });
+    it('should find the value in the form when exist a equipment selected ', async() => {
+        const wrapperComponent = render(
+            <FormCrearEquipos
+                addNewEquipment={addNewEquipment}
+                editEquipment={editEquipment}
+                equipmentSelected={[newEquipmentID]}
+            />
+        );
+
+       
+       const button = wrapperComponent.getByText('Editar');
+       const codigo =  wrapperComponent.getAllByPlaceholderText(/ingresa un codigo/i)[1];
+       fireEvent.change(codigo,{target:{value:'456'}}); 
+       fireEvent.click(button);
+       await wrapperComponent.findAllByPlaceholderText(/ingresa un codigo/i);   
+       expect(editEquipment).toHaveBeenCalled();     
+       expect(editEquipment).toBeCalledWith({...newEquipmentID,codigo:456});     
+
     });
 });
