@@ -12,7 +12,10 @@ interface AddNewEquipment{
 }
 interface getAllEquipments{
     type: typeof GET_ALL_EQUIPMENTS,
-    payload:EquipmentID[]
+    payload:{
+        data:EquipmentID[]
+        totalCount:number
+    }
 }
 
 interface AccionDefaultState {

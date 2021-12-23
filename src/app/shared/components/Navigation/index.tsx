@@ -19,10 +19,13 @@ export const Navigation = () => {
             {
                 toggle 
                 ?<IoMdClose 
+                    id='close-menu'
                     onClick={()=>setToggle(!toggle)}
                 />
                 :<GiHamburgerMenu
-                    onClick={()=>setToggle(!toggle)}
+                    id='open-menu'
+                    onClick={()=>setToggle(!toggle)
+                }
                 />
             }
             

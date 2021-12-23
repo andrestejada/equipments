@@ -1,16 +1,82 @@
 {
   "equipments": [
     {
-      "codigo": 615,
-      "nombre": "Licuadora",
-      "ubicacion": "almacen",
-      "id": 1
-    },
-    {
       "codigo": 7894321,
       "nombre": "Televisor",
       "ubicacion": "laboratorio",
       "id": 2
+    },
+    {
+      "codigo": 61578,
+      "nombre": "AirFriyer",
+      "ubicacion": "almacen",
+      "id": 3
+    },
+    {
+      "codigo": 615233,
+      "nombre": "Cafetera",
+      "ubicacion": "fabrica",
+      "id": 4
+    },
+    {
+      "codigo": 45067891,
+      "nombre": "mixer",
+      "ubicacion": "laboratorio",
+      "id": 5
+    },
+    {
+      "codigo": 111353,
+      "nombre": "picatodo",
+      "ubicacion": "fabrica",
+      "id": 6
+    },
+    {
+      "codigo": 2691,
+      "nombre": "olla",
+      "ubicacion": "laboratorio",
+      "id": 7
+    },
+    {
+      "codigo": 316532,
+      "nombre": "computador",
+      "ubicacion": "almacen",
+      "id": 8
+    },
+    {
+      "codigo": 7601,
+      "nombre": "laptop",
+      "ubicacion": "laboratorio",
+      "id": 9
+    },
+    {
+      "codigo": 113116,
+      "nombre": "ventilador",
+      "ubicacion": "almacen",
+      "id": 10
+    },
+    {
+      "codigo": 51866021,
+      "nombre": "Monitor",
+      "ubicacion": "fabrica",
+      "id": 11
+    },
+    {
+      "codigo": 300890,
+      "nombre": "Plancha",
+      "ubicacion": "laboratorio",
+      "id": 12
+    },
+    {
+      "codigo": 25262328,
+      "nombre": "audifonos",
+      "ubicacion": "almacen",
+      "id": 13
+    },
+    {
+      "codigo": 47810,
+      "nombre": "Licuadora",
+      "ubicacion": "laboratorio",
+      "id": 14
     }
   ]
 }

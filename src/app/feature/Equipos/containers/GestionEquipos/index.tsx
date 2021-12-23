@@ -13,6 +13,7 @@ interface Props {
   editEquipment:(equipment:EquipmentID)=>void;
   allEquipments: EquipmentID[];
   equipmentSelected: EquipmentID[];
+  totalCount:number;
 }
 export const GestionEquipos = ({
   addNewEquipment,
@@ -21,7 +22,8 @@ export const GestionEquipos = ({
   deleteEquipment,
   equipmentSelected,
   selectEquipment,
-  editEquipment
+  editEquipment,
+  totalCount
 }: Props) => {
   useEffect(() => {
     getAllEquipments();
@@ -40,6 +42,8 @@ export const GestionEquipos = ({
           allEquipments={allEquipments}
           deleteEquipment={deleteEquipment}
           selectEquipment={selectEquipment}
+          totalCount={totalCount}
+          getAllEquipments={getAllEquipments}
         />
       </Row>
     </Container>

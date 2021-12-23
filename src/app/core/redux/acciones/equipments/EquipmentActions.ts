@@ -27,16 +27,21 @@ export const addNewEquipment = (equip: EquipmentID): ActionsEquipments => ({
   payload: equip,
 });
 
-export const getAllEquipmentAsync = () => {
+export const getAllEquipmentAsync = (page?:number) => {
   return async (dispatch: Dispatch<ActionsEquipments>) => {
-    const { data } = await getAllEquipment();
-    dispatch(getEquipments(data));
+    const resp = await EquipmentRepository.getEquipments(page);
+    const data = resp.data;
+    const totalCount = +resp.headers['x-total-count'];
+    dispatch(getEquipments(data,totalCount));
   };
 };
 
-export const getEquipments = (equip: EquipmentID[]): ActionsEquipments => ({
+export const getEquipments = (equip: EquipmentID[],totalCount:number): ActionsEquipments => ({
   type: GET_ALL_EQUIPMENTS,
-  payload: equip,
+  payload: {
+    data:equip,
+    totalCount
+  },
 });
 
 export const deleteEquipmentAsync = (id: number) => {

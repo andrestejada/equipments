@@ -30,5 +30,6 @@ export const stateWithData:StateEquipmet={
             id:1     
         }
     ],
+    totalCount:0,
     equipmentSelected:[]
 };

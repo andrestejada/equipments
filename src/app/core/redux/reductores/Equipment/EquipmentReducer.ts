@@ -7,14 +7,17 @@ import {
   SELECT_EQUIPMENT,
 } from '../../acciones/equipments/EquipmentTypes';
 import { EquipmentID } from '../../../../feature/Equipos/models/Equipments';
+import { number } from 'prop-types';
 
 export interface StateEquipmet {
   allEquipments: EquipmentID[];
   equipmentSelected: EquipmentID[];
+  totalCount:number
 }
 export const initialState: StateEquipmet = {
   allEquipments: [],
   equipmentSelected: [],
+  totalCount:0
 };
 
 export const equipmentReducer = (
@@ -22,15 +25,19 @@ export const equipmentReducer = (
   action: ActionsEquipments
 ): StateEquipmet => {
   switch (action.type) {
-    case ADD_NEW_EQUIPMENT:
+    case ADD_NEW_EQUIPMENT:{
+      const [equip1,equip2] = state.allEquipments;
       return {
         ...state,
-        allEquipments: [...state.allEquipments, action.payload],
+        allEquipments: [action.payload,...[equip1,equip2] ],
+        totalCount: state.totalCount + 1
       };
+    }
     case GET_ALL_EQUIPMENTS:
       return {
         ...state,
-        allEquipments: action.payload,
+        allEquipments: action.payload.data,
+        totalCount:action.payload.totalCount
       };
     case DELETE_EQUIPMENT:
       return {
@@ -38,6 +45,7 @@ export const equipmentReducer = (
         allEquipments: state.allEquipments.filter(
           (equip) => equip.id !== action.payload
         ),
+        totalCount: state.totalCount - 1 
       };
     case SELECT_EQUIPMENT:
       return {
