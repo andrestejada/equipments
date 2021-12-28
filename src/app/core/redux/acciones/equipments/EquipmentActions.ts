@@ -4,6 +4,7 @@ import {
   DELETE_EQUIPMENT,
   EDIT_EQUIPMENT,
   GET_ALL_EQUIPMENTS,
+  GET_CURRENT_PAGE,
   SELECT_EQUIPMENT,
 } from './EquipmentTypes';
 import {
@@ -12,8 +13,9 @@ import {
 } from '../../../../feature/Equipos/models/Equipments';
 import { Dispatch } from 'redux';
 import { EquipmentRepository } from '../../../api/equipments.repository';
+import { getQueryPage } from '../../../../shared/utils/getQueryPage';
 
-const { addEquipment, getAllEquipment, deleteEquipment ,editEquipment} = EquipmentRepository;
+const { addEquipment, deleteEquipment ,editEquipment} = EquipmentRepository;
 
 export const addNewEquipmentAsync = (equipment: Equipment) => {
   return async (dispatch: Dispatch<ActionsEquipments>) => {
@@ -29,10 +31,12 @@ export const addNewEquipment = (equip: EquipmentID): ActionsEquipments => ({
 
 export const getAllEquipmentAsync = (page?:number) => {
   return async (dispatch: Dispatch<ActionsEquipments>) => {
-    const resp = await EquipmentRepository.getEquipments(page);
+    const resp = await EquipmentRepository.getEquipments(page);    
     const data = resp.data;
     const totalCount = +resp.headers['x-total-count'];
     dispatch(getEquipments(data,totalCount));
+    const currentPage = getQueryPage(resp.config.url);
+    dispatch(getCurrentPage(currentPage));
   };
 };
 
@@ -72,4 +76,9 @@ export const editEquipmentAsync = (equipment: EquipmentID)=>{
 export const editEquip =(equipment: EquipmentID):ActionsEquipments=>({
   type:EDIT_EQUIPMENT,
   payload:equipment
+});
+
+export const getCurrentPage=(page:number):ActionsEquipments=>({
+  type:GET_CURRENT_PAGE,
+  payload:page
 });

@@ -31,5 +31,6 @@ export const stateWithData:StateEquipmet={
         }
     ],
     totalCount:0,
-    equipmentSelected:[]
+    equipmentSelected:[],
+    currentPage:1
 };

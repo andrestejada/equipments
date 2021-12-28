@@ -14,6 +14,7 @@ interface Props {
   allEquipments: EquipmentID[];
   equipmentSelected: EquipmentID[];
   totalCount:number;
+  currentPage:number;
 }
 export const GestionEquipos = ({
   addNewEquipment,
@@ -23,7 +24,8 @@ export const GestionEquipos = ({
   equipmentSelected,
   selectEquipment,
   editEquipment,
-  totalCount
+  totalCount,
+  currentPage
 }: Props) => {
   useEffect(() => {
     getAllEquipments();
@@ -39,11 +41,12 @@ export const GestionEquipos = ({
       </Row>
       <Row>
         <ConsultarEquipos
-          allEquipments={allEquipments}
           deleteEquipment={deleteEquipment}
+          getAllEquipments={getAllEquipments}
+          allEquipments={allEquipments}
           selectEquipment={selectEquipment}
           totalCount={totalCount}
-          getAllEquipments={getAllEquipments}
+          currentPage={currentPage}
         />
       </Row>
     </Container>

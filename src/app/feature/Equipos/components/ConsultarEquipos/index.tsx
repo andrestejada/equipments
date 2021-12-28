@@ -13,6 +13,8 @@ interface Props {
   getAllEquipments: (page?: number) => void;
   totalCount: number;
   allEquipments: EquipmentID[];
+  currentPage:number;
+
 }
 export const ConsultarEquipos = ({
   allEquipments,
@@ -20,6 +22,7 @@ export const ConsultarEquipos = ({
   selectEquipment,
   totalCount,
   getAllEquipments,
+  currentPage
 }: Props) => {
   return (
     <>
@@ -35,12 +38,16 @@ export const ConsultarEquipos = ({
                   key={equip.codigo}
                   deleteEquipment={deleteEquipment}
                   selectEquipment={selectEquipment}
+                  getAllEquipments={getAllEquipments}
+                  currentPage={currentPage}
+                  allEquipments={allEquipments}
                   {...equip}
                 />
               ))}
               <Paginador
                 totalCount={totalCount}
                 getAllEquipments={getAllEquipments}
+                currentPage={currentPage}
               />
             </>
           ) : (

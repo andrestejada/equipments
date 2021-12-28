@@ -1,23 +1,22 @@
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { NumberContainer, PaginadorContainer } from './styles';
-import React, { useState } from 'react';
 import { Button } from 'app/shared/components/Button';
+import React from 'react';
 import { usePaginator } from '../../hook/usePaginator';
 
 interface Props {
   totalCount: number;
+  currentPage:number;
   getAllEquipments: (page?: number) => void;
 }
-export const Paginador = ({ totalCount, getAllEquipments }: Props) => {
+export const Paginador = ({ totalCount, getAllEquipments,currentPage}: Props) => {
   const {
     prevPage,
     nextPage,
-    numberPage,
-    currentPage,
+    numberPage,    
     quantityOfPages,
     quantityOfButton,
-  } = usePaginator({ totalCount, getAllEquipments });
-
+  } = usePaginator({ totalCount, getAllEquipments,currentPage});
   return (
     <PaginadorContainer>
       <Button
