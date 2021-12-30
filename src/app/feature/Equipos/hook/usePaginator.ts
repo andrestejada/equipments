@@ -1,17 +1,12 @@
 import { useEffect, useState } from 'react';
 interface Props {
   totalCount: number;
-  currentPage:number;
   getAllEquipments: (page?: number) => void;
 }
-export const usePaginator = ({ getAllEquipments, totalCount ,currentPage:page}: Props) => {
+export const usePaginator = ({ getAllEquipments, totalCount }: Props) => {
   const quantityOfPages = Math.ceil(totalCount / 3);
-  const [currentPage, setCurrentPage] = useState(page);
-  // useEffect(() => {
-  //   getAllEquipments(page);
-  //   console.log(page)
-  // }, [page]);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  
   const quantityOfButton: number[] = [];
   for (let i = 1; i <= quantityOfPages; i++) {
     quantityOfButton.push(i);

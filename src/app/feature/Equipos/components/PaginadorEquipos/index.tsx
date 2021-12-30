@@ -6,17 +6,17 @@ import { usePaginator } from '../../hook/usePaginator';
 
 interface Props {
   totalCount: number;
-  currentPage:number;
   getAllEquipments: (page?: number) => void;
 }
-export const Paginador = ({ totalCount, getAllEquipments,currentPage}: Props) => {
+export const Paginador = ({ totalCount, getAllEquipments}: Props) => {
   const {
     prevPage,
     nextPage,
     numberPage,    
     quantityOfPages,
     quantityOfButton,
-  } = usePaginator({ totalCount, getAllEquipments,currentPage});
+    currentPage,
+  } = usePaginator({ totalCount, getAllEquipments});
   return (
     <PaginadorContainer>
       <Button
@@ -26,7 +26,9 @@ export const Paginador = ({ totalCount, getAllEquipments,currentPage}: Props) =>
       >
         <FaAngleLeft />
       </Button>
-      <NumberContainer>
+      <NumberContainer
+        role='number-button-container'
+      >
         {quantityOfButton.map((b) => (
           <Button
             key={b}

@@ -8,8 +8,24 @@ Cypress.Commands.add('FillForm',(data)=>{
 Cypress.Commands.add('EquipmetPage',()=>{
     cy.visit('/');
     cy.get('[href="/equipos"]').click();
-    cy.intercept('GET','/equipments',{fixture:'/equipmentsEmpty.json'}).as('getData');
-    cy.wait('@getData');
+    cy.intercept(
+        {
+          pathname:'/equipments',
+          query:{
+              _limit:'3',
+              _page:'1',
+              _sort:'id',
+              _order:'desc',
+          }
+        },
+        {
+          method: 'GET',        
+          headers: { 'x-total-count': '6' },
+          fixture: './equipmentsPage1.json',
+        }
+      ).as('get');
+      cy.wait('@get');
+   
 });
 
 Cypress.Commands.add('addEquipment',()=>{

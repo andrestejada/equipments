@@ -47,7 +47,6 @@ export const ConsultarEquipos = ({
               <Paginador
                 totalCount={totalCount}
                 getAllEquipments={getAllEquipments}
-                currentPage={currentPage}
               />
             </>
           ) : (

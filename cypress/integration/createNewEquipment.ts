@@ -4,6 +4,7 @@ describe('testing in the page equipments', () => {
 
     before(()=>{
         cy.EquipmetPage();
+        
     });
     
     it('should be render correctly ', () => {

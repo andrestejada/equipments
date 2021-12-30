@@ -12,7 +12,7 @@ Object {
           Empieza Creando Un Equipo
         </h2>
         <form
-          class="sc-AxirZ iXEpzL"
+          class="sc-AxhCb gShkfD"
           role="form"
         >
           <h3
@@ -22,15 +22,15 @@ Object {
           </h3>
           <hr />
           <div
-            class="sc-AxiKw drioVU"
+            class="sc-AxhUy feubkZ"
           >
             <label
-              class="sc-AxhUy iSHKoT"
+              class="sc-AxheI hzItYT"
             >
               Codigo
             </label>
             <input
-              class="sc-AxhCb fiLrWf"
+              class="sc-AxgMl hkFlOk"
               name="codigo"
               placeholder="Ingresa un codigo"
               type="number"
@@ -38,15 +38,15 @@ Object {
             />
           </div>
           <div
-            class="sc-AxiKw drioVU"
+            class="sc-AxhUy feubkZ"
           >
             <label
-              class="sc-AxhUy iSHKoT"
+              class="sc-AxheI hzItYT"
             >
               Nombre Equipo
             </label>
             <input
-              class="sc-AxhCb fiLrWf"
+              class="sc-AxgMl hkFlOk"
               name="nombre"
               placeholder="Ingresa un nombre para el equipo"
               type="text"
@@ -54,15 +54,15 @@ Object {
             />
           </div>
           <div
-            class="sc-AxiKw drioVU"
+            class="sc-AxhUy feubkZ"
           >
             <label
-              class="sc-AxhUy iSHKoT"
+              class="sc-AxheI hzItYT"
             >
               Ubicacion
             </label>
             <select
-              class="sc-AxgMl cCjxPQ"
+              class="sc-Axmtr fHwtdx"
               name="ubicacion"
               role="ubicacion"
             >
@@ -90,7 +90,7 @@ Object {
             </select>
           </div>
           <button
-            class="sc-AxjAm jzxovO"
+            class="sc-AxiKw eJVtzL"
             role="button"
             type="submit"
           >
@@ -107,7 +107,7 @@ Object {
           Empieza Creando Un Equipo
         </h2>
         <form
-          class="sc-AxirZ iXEpzL"
+          class="sc-AxhCb gShkfD"
           role="form"
         >
           <h3
@@ -117,15 +117,15 @@ Object {
           </h3>
           <hr />
           <div
-            class="sc-AxiKw drioVU"
+            class="sc-AxhUy feubkZ"
           >
             <label
-              class="sc-AxhUy iSHKoT"
+              class="sc-AxheI hzItYT"
             >
               Codigo
             </label>
             <input
-              class="sc-AxhCb fiLrWf"
+              class="sc-AxgMl hkFlOk"
               name="codigo"
               placeholder="Ingresa un codigo"
               type="number"
@@ -133,15 +133,15 @@ Object {
             />
           </div>
           <div
-            class="sc-AxiKw drioVU"
+            class="sc-AxhUy feubkZ"
           >
             <label
-              class="sc-AxhUy iSHKoT"
+              class="sc-AxheI hzItYT"
             >
               Nombre Equipo
             </label>
             <input
-              class="sc-AxhCb fiLrWf"
+              class="sc-AxgMl hkFlOk"
               name="nombre"
               placeholder="Ingresa un nombre para el equipo"
               type="text"
@@ -149,15 +149,15 @@ Object {
             />
           </div>
           <div
-            class="sc-AxiKw drioVU"
+            class="sc-AxhUy feubkZ"
           >
             <label
-              class="sc-AxhUy iSHKoT"
+              class="sc-AxheI hzItYT"
             >
               Ubicacion
             </label>
             <select
-              class="sc-AxgMl cCjxPQ"
+              class="sc-Axmtr fHwtdx"
               name="ubicacion"
               role="ubicacion"
             >
@@ -185,7 +185,7 @@ Object {
             </select>
           </div>
           <button
-            class="sc-AxjAm jzxovO"
+            class="sc-AxiKw eJVtzL"
             role="button"
             type="submit"
           >
@@ -203,7 +203,7 @@ Object {
         Empieza Creando Un Equipo
       </h2>
       <form
-        class="sc-AxirZ iXEpzL"
+        class="sc-AxhCb gShkfD"
         role="form"
       >
         <h3
@@ -213,15 +213,15 @@ Object {
         </h3>
         <hr />
         <div
-          class="sc-AxiKw drioVU"
+          class="sc-AxhUy feubkZ"
         >
           <label
-            class="sc-AxhUy iSHKoT"
+            class="sc-AxheI hzItYT"
           >
             Codigo
           </label>
           <input
-            class="sc-AxhCb fiLrWf"
+            class="sc-AxgMl hkFlOk"
             name="codigo"
             placeholder="Ingresa un codigo"
             type="number"
@@ -229,15 +229,15 @@ Object {
           />
         </div>
         <div
-          class="sc-AxiKw drioVU"
+          class="sc-AxhUy feubkZ"
         >
           <label
-            class="sc-AxhUy iSHKoT"
+            class="sc-AxheI hzItYT"
           >
             Nombre Equipo
           </label>
           <input
-            class="sc-AxhCb fiLrWf"
+            class="sc-AxgMl hkFlOk"
             name="nombre"
             placeholder="Ingresa un nombre para el equipo"
             type="text"
@@ -245,15 +245,15 @@ Object {
           />
         </div>
         <div
-          class="sc-AxiKw drioVU"
+          class="sc-AxhUy feubkZ"
         >
           <label
-            class="sc-AxhUy iSHKoT"
+            class="sc-AxheI hzItYT"
           >
             Ubicacion
           </label>
           <select
-            class="sc-AxgMl cCjxPQ"
+            class="sc-Axmtr fHwtdx"
             name="ubicacion"
             role="ubicacion"
           >
@@ -281,7 +281,7 @@ Object {
           </select>
         </div>
         <button
-          class="sc-AxjAm jzxovO"
+          class="sc-AxiKw eJVtzL"
           role="button"
           type="submit"
         >

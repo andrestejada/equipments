@@ -54,20 +54,27 @@ describe('testing equipment actions', () => {
   });
 
   it('testing  getEquipments fn should be return the correct object ', () => {
-    const action = getEquipments([newEquipmentID]);
+    const action = getEquipments([newEquipmentID],5);
     expect(action).toEqual({
       type: GET_ALL_EQUIPMENTS,
-      payload: [newEquipmentID],
+      payload: {
+        data:[newEquipmentID],
+        totalCount:5
+      },
     });
   });
 
   it('should be get all the equipment en the db', async () => {
-    mockAxios.onGet('/equipments').reply(200, [newEquipmentID]);
+    const url ='/equipments/?_limit=3&_page=1&_sort=id&_order=desc';
+    mockAxios.onGet(url).reply(200,[newEquipmentID],{'x-total-count':5});
     await store.dispatch(getAllEquipmentAsync());
     const actions = store.getActions();
     expect(actions[0]).toEqual({
       type: GET_ALL_EQUIPMENTS,
-      payload: [newEquipmentID],
+      payload: {
+        data:[newEquipmentID],
+        totalCount:5
+      },
     });
   });
 
