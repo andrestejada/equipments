@@ -12,7 +12,7 @@ describe('testing in the CardEquipos component', () => {
         <CardEquipos
             allEquipments={[newEquipmentID]} 
             currentPage={2}
-            getAllEquipments={getAllEquipments}
+            getEquipmentsByPage={getAllEquipments}
             {...newEquipmentID}
             deleteEquipment={deleteEquipment}
             selectEquipment={selectEquipment}
@@ -27,7 +27,7 @@ describe('testing in the CardEquipos component', () => {
                 selectEquipment={selectEquipment}
                 allEquipments={[newEquipmentID]} 
                 currentPage={2}
-                getAllEquipments={getAllEquipments}
+                getEquipmentsByPage={getAllEquipments}
             />);
         jest.clearAllMocks();
     });
@@ -57,7 +57,7 @@ describe('testing in the CardEquipos component', () => {
             <CardEquipos
                 allEquipments={[equipment2,newEquipmentID]} 
                 currentPage={2}
-                getAllEquipments={getAllEquipments}
+                getEquipmentsByPage={getAllEquipments}
                 {...equipment2}
                 deleteEquipment={deleteEquipment}
                 selectEquipment={selectEquipment}

@@ -18,7 +18,7 @@ interface CardProps {
   allEquipments: EquipmentID[];
   deleteEquipment: (id: number) => void;
   selectEquipment: (id: number) => void;
-  getAllEquipments: (page?: number) => void;
+  getEquipmentsByPage: (page?: number) => void;
 }
 export const CardEquipos = ({
   codigo,
@@ -27,18 +27,18 @@ export const CardEquipos = ({
   deleteEquipment,
   id,
   selectEquipment,
-  getAllEquipments,
+  getEquipmentsByPage,
   currentPage,
   allEquipments
 }: CardProps) => {
   const handleDeleteEquipment=(id:number,currentPage:number)=>{
     if(allEquipments.length <= 1){
       deleteEquipment(id); 
-      getAllEquipments(currentPage - 1);
+      getEquipmentsByPage(currentPage - 1);
       return;
     }
     deleteEquipment(id); 
-    getAllEquipments(currentPage);
+    getEquipmentsByPage(currentPage);
   };
   return (
     <>

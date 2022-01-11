@@ -1,34 +1,69 @@
 import { useEffect, useState } from 'react';
+import { ActionsEquipments } from 'app/core/redux/acciones/equipments/EquipmentTypes';
+import { EquipmentID } from '../models/Equipments';
+import { SearchEquipments } from 'app/core/redux/reductores/Equipment/EquipmentReducer';
+import { paginateTermSearch } from '../utils/paginateTermSearch';
 interface Props {
+  getEquipmentsByPage: (page?: number) => void;
+  getCurrentPage: (page: number) => void;
+  changePageTermSearch: (equipments: EquipmentID[]) => ActionsEquipments;
   totalCount: number;
-  getAllEquipments: (page?: number) => void;
+  searchEquipments: SearchEquipments;
 }
-export const usePaginator = ({ getAllEquipments, totalCount }: Props) => {
+export const usePaginator = ({
+  getEquipmentsByPage,
+  totalCount,
+  searchEquipments,
+  getCurrentPage,
+  changePageTermSearch,
+}: Props) => {
   const quantityOfPages = Math.ceil(totalCount / 3);
   const [currentPage, setCurrentPage] = useState(1);
-  
+  const { filteredEquipments } = searchEquipments;
   const quantityOfButton: number[] = [];
   for (let i = 1; i <= quantityOfPages; i++) {
     quantityOfButton.push(i);
   }
 
+  useEffect(() => {
+    getCurrentPage(currentPage);
+  }, [currentPage, getCurrentPage]);
+
   const nextPage = () => {
     if (currentPage + 1 > quantityOfPages) {
       return;
     }
-    getAllEquipments(currentPage + 1);
+    if (filteredEquipments.length) {
+      setCurrentPage(currentPage + 1);
+      const resp = paginateTermSearch(currentPage + 1, filteredEquipments);
+      changePageTermSearch(resp);
+      return;
+    }
+    getEquipmentsByPage(currentPage + 1);
     setCurrentPage(currentPage + 1);
   };
   const prevPage = () => {
     if (currentPage <= 1) {
       return;
     }
-    getAllEquipments(currentPage - 1);
+    if (filteredEquipments.length) {
+      setCurrentPage(currentPage - 1);
+      const resp = paginateTermSearch(currentPage - 1, filteredEquipments);
+      changePageTermSearch(resp);
+      return;
+    }
+    getEquipmentsByPage(currentPage - 1);
     setCurrentPage(currentPage - 1);
   };
 
   const numberPage = (page: number) => {
-    getAllEquipments(page);
+    if (filteredEquipments.length) {
+      const resp = paginateTermSearch(page, filteredEquipments);
+      changePageTermSearch(resp);
+      setCurrentPage(page);
+      return;
+    }
+    getEquipmentsByPage(page);
     setCurrentPage(page);
   };
 
@@ -38,6 +73,6 @@ export const usePaginator = ({ getAllEquipments, totalCount }: Props) => {
     numberPage,
     quantityOfPages,
     currentPage,
-    quantityOfButton
+    quantityOfButton,
   };
 };

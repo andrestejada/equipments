@@ -2,7 +2,7 @@ import {
   ADD_NEW_EQUIPMENT,
   DELETE_EQUIPMENT,
   EDIT_EQUIPMENT,
-  GET_ALL_EQUIPMENTS,
+  GET_EQUIPMENTS,
   SELECT_EQUIPMENT,
 } from './EquipmentTypes';
 import {
@@ -12,7 +12,7 @@ import {
   deleteEquipmentById,
   editEquip,
   editEquipmentAsync,
-  getAllEquipmentAsync,
+  getEquipmentByPageAsync,
   getEquipments,
   selectEquipment,
 } from './EquipmentActions';
@@ -56,7 +56,7 @@ describe('testing equipment actions', () => {
   it('testing  getEquipments fn should be return the correct object ', () => {
     const action = getEquipments([newEquipmentID],5);
     expect(action).toEqual({
-      type: GET_ALL_EQUIPMENTS,
+      type: GET_EQUIPMENTS,
       payload: {
         data:[newEquipmentID],
         totalCount:5
@@ -67,10 +67,10 @@ describe('testing equipment actions', () => {
   it('should be get all the equipment en the db', async () => {
     const url ='/equipments/?_limit=3&_page=1&_sort=id&_order=desc';
     mockAxios.onGet(url).reply(200,[newEquipmentID],{'x-total-count':5});
-    await store.dispatch(getAllEquipmentAsync());
+    await store.dispatch(getEquipmentByPageAsync());
     const actions = store.getActions();
     expect(actions[0]).toEqual({
-      type: GET_ALL_EQUIPMENTS,
+      type: GET_EQUIPMENTS,
       payload: {
         data:[newEquipmentID],
         totalCount:5

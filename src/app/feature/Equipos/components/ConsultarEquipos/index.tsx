@@ -1,59 +1,48 @@
-import { CardContainer } from '../../../../shared/components/CardContainer/index';
-import { CardEquipos } from './CardEquipos/index';
-import { CardList } from '../../../../shared/components/CardList/CardList';
+import { ActionsEquipments } from 'app/core/redux/acciones/equipments/EquipmentTypes';
+import { BuscadorEquipos } from '../BuscadorEquipos/index';
+import { CardList } from './CardList/index';
 import { EquipmentID } from '../../models/Equipments';
-import { Paginador } from '../PaginadorEquipos';
 import React from 'react';
+import { SearchEquipments } from '../../../../core/redux/reductores/Equipment/EquipmentReducer';
 import { SinEquipos } from '../SinEquipos/index';
+import { TerminoBusqueda } from '../TerminoBusqueda/index';
 import { Typography } from 'app/shared/components/Typography';
 
 interface Props {
   deleteEquipment: (id: number) => void;
   selectEquipment: (id: number) => void;
-  getAllEquipments: (page?: number) => void;
+  getEquipmentsByPage: (page?: number) => void;
+  getEquipmentBySearch: (termino: string) => void;
+  getCurrentPage:(page:number)=>void;
+  changePageTermSearch:(equipments:EquipmentID[])=>ActionsEquipments;
   totalCount: number;
   allEquipments: EquipmentID[];
-  currentPage:number;
-
+  currentPage: number;
+  searchEquipments: SearchEquipments;
 }
-export const ConsultarEquipos = ({
-  allEquipments,
-  deleteEquipment,
-  selectEquipment,
-  totalCount,
-  getAllEquipments,
-  currentPage
-}: Props) => {
+export const ConsultarEquipos = (props: Props) => {
+  const {
+    allEquipments,
+    getEquipmentBySearch,
+    searchEquipments,
+  } = props;
   return (
     <>
       <Typography tag="h2" styles={{ textAlign: 'center' }}>
         Consulta tus Equipos
       </Typography>
-      <CardContainer>
-        <CardList>
-          {allEquipments.length ? (
-            <>
-              {allEquipments.map((equip) => (
-                <CardEquipos
-                  key={equip.codigo}
-                  deleteEquipment={deleteEquipment}
-                  selectEquipment={selectEquipment}
-                  getAllEquipments={getAllEquipments}
-                  currentPage={currentPage}
-                  allEquipments={allEquipments}
-                  {...equip}
-                />
-              ))}
-              <Paginador
-                totalCount={totalCount}
-                getAllEquipments={getAllEquipments}
-              />
-            </>
-          ) : (
-            <SinEquipos />
-          )}
-        </CardList>
-      </CardContainer>
+
+      {allEquipments.length || searchEquipments.term ? (
+        <>
+          <BuscadorEquipos getEquipmentBySearch={getEquipmentBySearch} />
+          <TerminoBusqueda
+            {...props}
+          />
+          <CardList {...props} />
+        </>
+      ) : (
+        <SinEquipos />
+      )}
     </>
   );
 };

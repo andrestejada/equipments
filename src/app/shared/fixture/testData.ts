@@ -32,5 +32,11 @@ export const stateWithData:StateEquipmet={
     ],
     totalCount:0,
     equipmentSelected:[],
-    currentPage:1
+    currentPage:1,
+    searchEquipments:{
+        term:'',
+        filteredEquipments:[],
+        equipmentsPerPage:[]
+    }
+
 };

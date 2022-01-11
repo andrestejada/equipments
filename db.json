@@ -73,10 +73,16 @@
       "id": 12
     },
     {
-      "codigo": 8895,
-      "nombre": "play",
-      "ubicacion": "laboratorio",
-      "id": 13
+      "codigo": 1245,
+      "nombre": "gamer",
+      "ubicacion": "almacen",
+      "id": 14
+    },
+    {
+      "codigo": 121541,
+      "nombre": "Vaso2",
+      "ubicacion": "fabrica",
+      "id": 15
     }
   ]
 }

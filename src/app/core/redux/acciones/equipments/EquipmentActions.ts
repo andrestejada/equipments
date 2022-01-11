@@ -1,10 +1,12 @@
 import {
   ADD_NEW_EQUIPMENT,
   ActionsEquipments,
+  CHANGE_PAGE_TERM_SEARCH,
   DELETE_EQUIPMENT,
   EDIT_EQUIPMENT,
-  GET_ALL_EQUIPMENTS,
   GET_CURRENT_PAGE,
+  GET_EQUIPMENTS,
+  GET_EQUIPMENT_BY_SEARCH,
   SELECT_EQUIPMENT,
 } from './EquipmentTypes';
 import {
@@ -13,6 +15,7 @@ import {
 } from '../../../../feature/Equipos/models/Equipments';
 import { Dispatch } from 'redux';
 import { EquipmentRepository } from '../../../api/equipments.repository';
+import { filterSearchTerm } from '../../../../feature/Equipos/utils/filterSearchTerm';
 import { getQueryPage } from '../../../../shared/utils/getQueryPage';
 
 const { addEquipment, deleteEquipment ,editEquipment} = EquipmentRepository;
@@ -29,19 +32,29 @@ export const addNewEquipment = (equip: EquipmentID): ActionsEquipments => ({
   payload: equip,
 });
 
-export const getAllEquipmentAsync = (page?:number) => {
+export const getEquipmentBySearch=(termino:string)=>{
+  return async(dispatch: Dispatch<ActionsEquipments>)=>{
+    const resp = await EquipmentRepository.getAllEquipment();
+    const data = resp.data;
+    const filtedEquipments = filterSearchTerm(data,termino);
+    const totalCount = filtedEquipments.length;
+    dispatch(getEquipmentByTermSearch(filtedEquipments,termino,totalCount));
+  };
+};
+
+export const getEquipmentByPageAsync = (page?:number) => {
   return async (dispatch: Dispatch<ActionsEquipments>) => {
     const resp = await EquipmentRepository.getEquipments(page);    
     const data = resp.data;
     const totalCount = +resp.headers['x-total-count'];
     dispatch(getEquipments(data,totalCount));
-    const currentPage = getQueryPage(resp.config.url);
-    dispatch(getCurrentPage(currentPage));
+    // const currentPage = getQueryPage(resp.config.url);
+    // dispatch(getCurrentPage(currentPage));
   };
 };
 
 export const getEquipments = (equip: EquipmentID[],totalCount:number): ActionsEquipments => ({
-  type: GET_ALL_EQUIPMENTS,
+  type: GET_EQUIPMENTS,
   payload: {
     data:equip,
     totalCount
@@ -81,4 +94,18 @@ export const editEquip =(equipment: EquipmentID):ActionsEquipments=>({
 export const getCurrentPage=(page:number):ActionsEquipments=>({
   type:GET_CURRENT_PAGE,
   payload:page
+});
+
+export const getEquipmentByTermSearch=(data:EquipmentID[],term:string,totalCount:number):ActionsEquipments=>({
+  type:GET_EQUIPMENT_BY_SEARCH,
+  payload:{
+    data,
+    term,
+    totalCount
+  }
+});
+
+export const changePageTermSearch=(equipments:EquipmentID[]):ActionsEquipments=>({
+  type:CHANGE_PAGE_TERM_SEARCH,
+  payload:equipments
 });

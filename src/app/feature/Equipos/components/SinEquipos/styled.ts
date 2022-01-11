@@ -5,4 +5,6 @@ export const SinCitasContainer = styled.p`
     padding: 0.5rem;
     background: #ffa158;
     border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
 `;

@@ -1,8 +1,11 @@
 import {
   addNewEquipmentAsync,
+  changePageTermSearch,
   deleteEquipmentAsync,
   editEquipmentAsync,
-  getAllEquipmentAsync,
+  getCurrentPage,
+  getEquipmentByPageAsync,
+  getEquipmentBySearch,
   selectEquipment,
 } from '../../../core/redux/acciones/equipments/EquipmentActions';
 import { EstadoGeneral } from '../../../core/redux/modelo/EstadoGeneral';
@@ -15,10 +18,13 @@ const mapStateToProps = (state: EstadoGeneral) => {
 
 const mapDispatchToProps = {
   addNewEquipment: addNewEquipmentAsync,
-  getAllEquipments: getAllEquipmentAsync,
+  getEquipmentsByPage: getEquipmentByPageAsync,
   deleteEquipment: deleteEquipmentAsync,
   editEquipment: editEquipmentAsync,
+  getEquipmentBySearch,
   selectEquipment,
+  getCurrentPage,
+  changePageTermSearch
 };
 
 export const ProveedorGestionEquipos = connect(

@@ -30,7 +30,7 @@ Object {
               Codigo
             </label>
             <input
-              class="sc-AxgMl hkFlOk"
+              class="sc-AxgMl eKBvHB"
               name="codigo"
               placeholder="Ingresa un codigo"
               type="number"
@@ -46,7 +46,7 @@ Object {
               Nombre Equipo
             </label>
             <input
-              class="sc-AxgMl hkFlOk"
+              class="sc-AxgMl eKBvHB"
               name="nombre"
               placeholder="Ingresa un nombre para el equipo"
               type="text"
@@ -125,7 +125,7 @@ Object {
               Codigo
             </label>
             <input
-              class="sc-AxgMl hkFlOk"
+              class="sc-AxgMl eKBvHB"
               name="codigo"
               placeholder="Ingresa un codigo"
               type="number"
@@ -141,7 +141,7 @@ Object {
               Nombre Equipo
             </label>
             <input
-              class="sc-AxgMl hkFlOk"
+              class="sc-AxgMl eKBvHB"
               name="nombre"
               placeholder="Ingresa un nombre para el equipo"
               type="text"
@@ -221,7 +221,7 @@ Object {
             Codigo
           </label>
           <input
-            class="sc-AxgMl hkFlOk"
+            class="sc-AxgMl eKBvHB"
             name="codigo"
             placeholder="Ingresa un codigo"
             type="number"
@@ -237,7 +237,7 @@ Object {
             Nombre Equipo
           </label>
           <input
-            class="sc-AxgMl hkFlOk"
+            class="sc-AxgMl eKBvHB"
             name="nombre"
             placeholder="Ingresa un nombre para el equipo"
             type="text"
