@@ -22,7 +22,7 @@ describe('testing when a user want to modify a existing equipment', () => {
   });
 
   it('When I press the botton edit should be appears the values in the form', () => {
-    cy.get(':nth-child(1) > .sc-fzqBZW > [role="edit"]').click();
+    cy.get(':nth-child(1) > .sc-fznWqX > [role="edit"]').click();
     cy.get('[placeholder="Ingresa un codigo"]').should('have.value', 123);
     cy.get('[placeholder="Ingresa un nombre para el equipo"]').should(
       'have.value',
@@ -35,10 +35,10 @@ describe('testing when a user want to modify a existing equipment', () => {
     cy.intercept('PUT', '/equipments/2', (req) => {
       req.reply({ body: req.body });
     }).as('edit');
-    cy.get(':nth-child(2) > .sc-fzqBZW > [role="edit"]').click();
+    cy.get(':nth-child(2) > .sc-fznWqX > [role="edit"]').click();
     cy.get('[placeholder="Ingresa un codigo"]').type('2');
-    cy.get('.sc-fznxsB > .sc-fzoLag').click();
+    cy.get('.sc-fzoNJl > .sc-fzqBZW').click();
     cy.wait('@edit');
-    cy.get('.sc-fzplWN').should('contain', '5682');
+    cy.get('.sc-fzoiQi').should('contain', '5682');
   });
 });

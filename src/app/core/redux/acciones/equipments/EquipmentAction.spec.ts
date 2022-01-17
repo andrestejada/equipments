@@ -1,18 +1,23 @@
 import {
   ADD_NEW_EQUIPMENT,
+  CHANGE_PAGE_TERM_SEARCH,
   DELETE_EQUIPMENT,
   EDIT_EQUIPMENT,
   GET_EQUIPMENTS,
+  GET_EQUIPMENT_BY_SEARCH,
   SELECT_EQUIPMENT,
 } from './EquipmentTypes';
 import {
   addNewEquipment,
   addNewEquipmentAsync,
+  changePageTermSearch,
   deleteEquipmentAsync,
   deleteEquipmentById,
   editEquip,
   editEquipmentAsync,
   getEquipmentByPageAsync,
+  getEquipmentBySearch,
+  getEquipmentByTermSearch,
   getEquipments,
   selectEquipment,
 } from './EquipmentActions';
@@ -23,6 +28,7 @@ import {
 import { initialState } from '../../reductores/Equipment/EquipmentReducer';
 import { mockAxios } from '../../mocks/mockAxios';
 import { mockStore } from '../../mocks/mockstore';
+import { testData } from '../../../../shared/fixture/testData';
 
 let store = mockStore(initialState);
 
@@ -106,7 +112,7 @@ describe('testing equipment actions', () => {
     });
   });
 
-  it('should be match withe the correct object ', () => {
+  it('should be match with the correct object ', () => {
     const action = editEquip(newEquipmentID);
     expect(action).toEqual({
       type: EDIT_EQUIPMENT,
@@ -124,4 +130,39 @@ describe('testing equipment actions', () => {
         payload: newEquipmentID,
       });
   });
+
+  it('should be match with the correct payload', () => {
+    const action = changePageTermSearch([newEquipmentID]);
+    expect(action).toEqual({
+      type:CHANGE_PAGE_TERM_SEARCH,
+      payload:[newEquipmentID]
+    });
+  });
+
+  it('should be match with the correct payload', () => {
+    const action = getEquipmentByTermSearch(testData,'al',1);
+    expect(action).toEqual({
+      type: GET_EQUIPMENT_BY_SEARCH,
+      payload: { 
+        data: testData, 
+        term: 'al', 
+        totalCount: 1
+      }
+    });
+  });
+
+  it('should be dispatch changePageTermSearch with the equipments filtered', async() => {
+    mockAxios.onGet('/equipments').reply(200,testData);
+    await store.dispatch(getEquipmentBySearch('bas'));
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: GET_EQUIPMENT_BY_SEARCH,
+      payload: { 
+        data: testData, 
+        term: 'bas', 
+        totalCount: 1
+      }
+    });
+  });
+
 });

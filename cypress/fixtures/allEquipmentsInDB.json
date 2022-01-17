@@ -1,0 +1,38 @@
+[
+  {
+  "codigo": 123,
+  "nombre": "Bascula",
+  "ubicacion": "fabrica",
+  "id": 1
+  },
+  {
+  "codigo": 568,
+  "nombre": "Centrifuga",
+  "ubicacion": "fabrica",
+  "id": 2
+  },
+  {
+  "codigo": 789,
+  "nombre": "Motor",
+  "ubicacion": "almacen",
+  "id": 3
+  },
+  {
+    "codigo": 1232,
+    "nombre": "Bascula2",
+    "ubicacion": "fabrica2",
+    "id": 4
+    },
+    {
+    "codigo": 5682,
+    "nombre": "Centrifuga2",
+    "ubicacion": "fabrica2",
+    "id": 5
+    },
+    {
+    "codigo": 7892,
+    "nombre": "Motor2",
+    "ubicacion": "almacen2",
+    "id": 6
+    }
+]

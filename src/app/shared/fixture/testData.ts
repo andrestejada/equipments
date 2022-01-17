@@ -20,6 +20,32 @@ export const testData=[
         id:1     
     }
 ];
+export const testDataPagination=[
+    {
+        codigo:123,
+        nombre:'bascula',
+        ubicacion:'almacen',
+        id:1     
+    },
+    {
+        codigo:456,
+        nombre:'licuadora',
+        ubicacion:'fabrica',
+        id:2     
+    },
+    {
+        codigo:789,
+        nombre:'computador',
+        ubicacion:'laboratorio',
+        id:3     
+    },
+    {
+        codigo:14785,
+        nombre:'ventilador',
+        ubicacion:'fabrica',
+        id:4     
+    },
+];
 
 export const stateWithData:StateEquipmet={
     allEquipments:[

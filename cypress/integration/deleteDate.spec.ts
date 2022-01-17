@@ -49,7 +49,7 @@ describe('testing delete equipment in the equipment pages', () => {
             }
           ).as('getDelete');
         cy.intercept('DELETE','/equipments/3',{statusCode:200}).as('Delete');
-        cy.get(':nth-child(3) > .sc-fzqBZW > [role="button"]').click();
+        cy.get(':nth-child(3) > .sc-fznWqX > [role="button"]').click();
         cy.wait('@Delete');
         cy.wait('@getDelete');
         cy.contains('li','Motor').should('not.exist');

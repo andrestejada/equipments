@@ -25,6 +25,7 @@ export const TerminoBusqueda = ({searchEquipments,getEquipmentsByPage,getCurrent
 
       <Button
         type='button'
+        role='removeSearchTerm'
         onClick={()=>{getEquipmentsByPage(1); getCurrentPage(1); }}
       >
         <FaWindowClose />

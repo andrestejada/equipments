@@ -36,14 +36,18 @@ export const BuscadorEquipos = ({getEquipmentBySearch}:Props) => {
           onChange={(e) => setValue(e.target.value)}
         />
         <ContainerSearchIcon>
-          <Button type="button" onClick={searchEquipment}>
+          <Button
+            role='searchButton' 
+            type="button" 
+            onClick={searchEquipment}
+          >
             <FaSearch />
           </Button>
         </ContainerSearchIcon>
       </BuscadorContainer>
       {
         error &&
-        <SpanError>{msg}</SpanError>
+        <SpanError role='searchError' >{msg}</SpanError>
       }
     </Container>
   );

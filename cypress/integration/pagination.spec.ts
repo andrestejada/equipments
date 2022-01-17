@@ -3,7 +3,7 @@ describe('testing the paginator', () => {
         cy.EquipmetPage();
     });
     it('should be get the equipment of the other page', () => {
-        cy.get('.sc-fzoyAV > :nth-child(2)').as('btn2').click();
+        cy.get('.sc-fzokOt > :nth-child(2)').as('btn2').click();
         cy.intercept(
             {
               pathname:'/equipments',
@@ -21,7 +21,7 @@ describe('testing the paginator', () => {
             }
           ).as('getDelete');
 
-          cy.get('.sc-fzqNJr > :nth-child(3)')
+          cy.get('.sc-fznZeY > :nth-child(3)')
             .should('not.be.visible');
         cy.get('@btn2').should('have.css','background-color','rgb(62, 138, 206)');
 

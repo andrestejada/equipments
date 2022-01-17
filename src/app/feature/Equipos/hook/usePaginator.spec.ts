@@ -1,6 +1,12 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 import { SearchEquipments } from '../../../core/redux/reductores/Equipment/EquipmentReducer';
+import { paginateTermSearch } from '../utils/paginateTermSearch';
+import { testDataPagination } from '../../../shared/fixture/testData';
 import { usePaginator } from './usePaginator';
+
+jest.mock('../utils/paginateTermSearch',()=>({
+  paginateTermSearch:jest.fn(),
+}));
 
 describe('testing in the usePaginador hook', () => {
   const totalCount = 5;
@@ -29,6 +35,7 @@ describe('testing in the usePaginador hook', () => {
         getCurrentPage,
         changePageTermSearch,
       }));
+      jest.clearAllMocks();
   });
   test('testing next page', () => {
     const { result } = wrapper;
@@ -57,5 +64,75 @@ describe('testing in the usePaginador hook', () => {
       result.current.prevPage();
     });
     expect(result.current.currentPage).toBe(1);
+  });
+
+  it('testing number page with term search', () => {
+    const searchEquipments: SearchEquipments = {
+      equipmentsPerPage: [],
+      filteredEquipments: testDataPagination,
+      term: 'bas',
+    };
+    const wrapper = renderHook(() =>
+    usePaginator({
+      getEquipmentsByPage,
+      totalCount,
+      searchEquipments,
+      getCurrentPage,
+      changePageTermSearch,
+    })
+  );
+    const { result } = wrapper;
+    act(() => {
+      result.current.numberPage(2);
+    });
+    expect(paginateTermSearch).toHaveBeenCalled();
+    expect(paginateTermSearch).toHaveBeenCalledWith(2,testDataPagination);
+  });
+  it('testing next page function with term search', () => {
+    const searchEquipments: SearchEquipments = {
+      equipmentsPerPage: [],
+      filteredEquipments: testDataPagination,
+      term: 'bas',
+    };
+    const wrapper = renderHook(() =>
+    usePaginator({
+      getEquipmentsByPage,
+      totalCount,
+      searchEquipments,
+      getCurrentPage,
+      changePageTermSearch,
+    })
+  );
+    const { result } = wrapper;
+    act(() => {
+      result.current.nextPage();
+    });
+    expect(paginateTermSearch).toHaveBeenCalled();
+    expect(paginateTermSearch).toHaveBeenCalledWith(2,testDataPagination);
+    
+  });
+  it('testing prev page function with term search', () => {
+    const searchEquipments: SearchEquipments = {
+      equipmentsPerPage: [],
+      filteredEquipments: testDataPagination,
+      term: 'bas',
+    };
+    const wrapper = renderHook(() =>
+    usePaginator({
+      getEquipmentsByPage,
+      totalCount,
+      searchEquipments,
+      getCurrentPage,
+      changePageTermSearch,
+    })
+  );
+    const { result } = wrapper;
+    act(() => {
+      result.current.nextPage();
+    });
+    act(() => {
+      result.current.prevPage();
+    });
+    expect(paginateTermSearch).toHaveBeenCalled();    
   });
 });

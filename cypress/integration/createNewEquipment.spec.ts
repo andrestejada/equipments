@@ -3,8 +3,7 @@ import {equipment} from '../fixtures/equipment.js';
 describe('testing in the page equipments', () => {
 
     before(()=>{
-        cy.EquipmetPage();
-        
+        cy.EquipmetPage();        
     });
     
     it('should be render correctly ', () => {

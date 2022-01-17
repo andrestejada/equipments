@@ -1,8 +1,10 @@
 import {
   addNewEquipment,
+  changePageTermSearch,
   deleteEquipmentById,
   editEquip,
   getCurrentPage,
+  getEquipmentByTermSearch,
   getEquipments,
   selectEquipment,
 } from '../../acciones/equipments/EquipmentActions';
@@ -10,6 +12,8 @@ import { equipmentReducer, initialState } from './EquipmentReducer';
 import {
   newEquipmentID,
   stateWithData,
+  testData,
+  testDataPagination,
 } from '../../../../shared/fixture/testData';
 import { ActionsEquipments } from '../../acciones/equipments/EquipmentTypes';
 describe('testing the equipmetReducer', () => {
@@ -76,5 +80,21 @@ describe('testing the equipmetReducer', () => {
       expect(state.currentPage).toBe(5);
       expect(typeof state.currentPage).toBe('number');
       expect(state.currentPage).not.toBe(-5);
+  });
+
+  it('should be return the equipment by term search', () => {
+    const action = getEquipmentByTermSearch(testDataPagination,'al',1);
+    const state = equipmentReducer(initialState,action);
+    console.log(state);
+    expect(state.searchEquipments.term).toBe('al');
+    expect(state.searchEquipments.filteredEquipments.length).toBe(4);
+    expect(state.searchEquipments.equipmentsPerPage.length).toBe(3);
+  });
+
+  it('should be return the equipment in the other page', () => {
+    
+    const action = changePageTermSearch(testDataPagination);
+    const state = equipmentReducer(initialState,action);
+    expect(state.searchEquipments.equipmentsPerPage.length).toBe(4);
   });
 });
