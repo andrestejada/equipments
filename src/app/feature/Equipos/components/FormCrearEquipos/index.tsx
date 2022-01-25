@@ -17,6 +17,7 @@ interface FormValues {
     codigo: number | '';
     nombre: string;
     ubicacion: string;
+    fecha:Date|string;
 }
 
 interface PropsFormEquipos{
@@ -30,21 +31,26 @@ export const FormCrearEquipos = ({addNewEquipment,equipmentSelected,editEquipmen
     const editValues:FormValues = {
         codigo: equipmentSelected[0]?.codigo ,
         nombre: equipmentSelected[0]?.nombre,
-        ubicacion:equipmentSelected[0]?.ubicacion
+        ubicacion:equipmentSelected[0]?.ubicacion,
+        fecha:equipmentSelected[0]?.fecha.toLocaleString().slice(0,10),
     };
     const initialValues:FormValues={
         codigo:'',
         nombre:'',
         ubicacion:'',
+        fecha: '',
     };
 
     const validationSchema= Yup.object().shape<FormValues>({
         codigo: Yup.number().required('El codigo es requerido'),
         nombre: Yup.string().required('El nombre es requerido').max(10,'No debe ser mas de 10 caracteres'),
-        ubicacion: Yup.string().required('La ubicacion es requerida'),        
+        ubicacion: Yup.string().required('La ubicacion es requerida'), 
+        fecha:Yup.date().required('La fecha es requerida').min( new Date().toDateString(),`la fecha debe ser mayor a la fecha ${new Date().toISOString()}`)
     });
     
-    const onSubmit=(values:FormValues,{resetForm}:FormikHelpers<FormValues>)=>{
+    const onSubmit=({fecha , ...res}:FormValues,{resetForm}:FormikHelpers<FormValues>)=>{        
+        fecha = new Date(`${fecha}T00:00:00`);
+        const values = {...res,fecha};
         if(IsEditing){
             editEquipment({...values,id:equipmentSelected[0].id});
         }else{
@@ -58,7 +64,6 @@ export const FormCrearEquipos = ({addNewEquipment,equipmentSelected,editEquipmen
         validationSchema,
         enableReinitialize:true
     });
-    
     return (
         <div>
             <Typography
@@ -126,9 +131,21 @@ export const FormCrearEquipos = ({addNewEquipment,equipmentSelected,editEquipmen
                     </Select>
                 </FormControl>
                 {errors.ubicacion && touched.ubicacion && <SpanError>{errors.ubicacion}</SpanError> }
+                <FormControl>
+                <Label>Fecha de Mantenimiento</Label>
+                    <Input
+                        type='date'
+                        name='fecha'
+                        role='fecha'
+                        onChange={handleChange}
+                        value={values.fecha.toString()}
+                        min={new Date().toISOString().slice(0,10)}
+                    />
+                </FormControl>
+                {errors.fecha && touched.fecha && <SpanError>{errors.fecha}</SpanError> }
                 <Button
                     type='submit'
-                    role='button'
+                    role='submitForm'
                 >{ IsEditing ? 'Editar' : 'Ingresar'}</Button>
             </Form>
         </div>

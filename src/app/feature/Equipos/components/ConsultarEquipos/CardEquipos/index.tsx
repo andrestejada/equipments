@@ -8,12 +8,14 @@ import {
 import { Button } from 'app/shared/components/Button';
 import { EquipmentID } from '../../../models/Equipments';
 import React from 'react';
+import { formatDate } from 'app/shared/utils/formatDate';
 
 interface CardProps {
   codigo: number | '';
   nombre: string;
   ubicacion: string;
   id: number;
+  fecha:string|Date
   currentPage:number;
   allEquipments: EquipmentID[];
   deleteEquipment: (id: number) => void;
@@ -26,6 +28,7 @@ export const CardEquipos = ({
   ubicacion,
   deleteEquipment,
   id,
+  fecha,
   selectEquipment,
   getEquipmentsByPage,
   currentPage,
@@ -40,6 +43,7 @@ export const CardEquipos = ({
     deleteEquipment(id); 
     getEquipmentsByPage(currentPage);
   };
+  formatDate(fecha);
   return (
     <>
       <CardBox>
@@ -54,6 +58,10 @@ export const CardEquipos = ({
         <CardSecction>
           <CardTitle>Ubicación:</CardTitle>
           <CardContent>{ubicacion}</CardContent>
+        </CardSecction>
+        <CardSecction>
+          <CardTitle>Fecha de Mantenimiento:</CardTitle>
+          <CardContent>{ formatDate(fecha) }</CardContent>
         </CardSecction>
 
         <BtnSecction>

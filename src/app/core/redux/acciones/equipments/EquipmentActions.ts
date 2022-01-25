@@ -16,7 +16,6 @@ import {
 import { Dispatch } from 'redux';
 import { EquipmentRepository } from '../../../api/equipments.repository';
 import { filterSearchTerm } from '../../../../feature/Equipos/utils/filterSearchTerm';
-import { getQueryPage } from '../../../../shared/utils/getQueryPage';
 
 const { addEquipment, deleteEquipment ,editEquipment} = EquipmentRepository;
 

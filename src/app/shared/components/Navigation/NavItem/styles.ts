@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const ListItem =styled.li`
+export const ListItem = styled.li`
     padding:0.5rem;    
     a{
         color:#fff;
-        display:block
+        display:block;
         width:100%;
         transition: 0.4s ease;
         &:hover{

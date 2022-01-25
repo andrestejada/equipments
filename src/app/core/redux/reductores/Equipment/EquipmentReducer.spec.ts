@@ -60,6 +60,7 @@ describe('testing the equipmetReducer', () => {
             codigo: 123,
             nombre: 'nombre Editado',
             ubicacion: 'almacen',
+            fecha: '2022-01-25T05:00:00.000Z',
             id: 1,
         },
     ]);
@@ -67,6 +68,7 @@ describe('testing the equipmetReducer', () => {
         codigo:1234,
         nombre:'bascula2',
         ubicacion:'almacen2',
+        fecha:new Date(),
         id:2
     };
     const action2 = editEquip(equip2);
@@ -85,7 +87,6 @@ describe('testing the equipmetReducer', () => {
   it('should be return the equipment by term search', () => {
     const action = getEquipmentByTermSearch(testDataPagination,'al',1);
     const state = equipmentReducer(initialState,action);
-    console.log(state);
     expect(state.searchEquipments.term).toBe('al');
     expect(state.searchEquipments.filteredEquipments.length).toBe(4);
     expect(state.searchEquipments.equipmentsPerPage.length).toBe(3);

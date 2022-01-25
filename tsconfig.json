@@ -41,5 +41,6 @@
   "include": [
     "src",
     "test/PaginadorComponentes.test.js"
-  ]
+  ],
+  // "files": ["src/app/themes/styled.d.ts"]
 }

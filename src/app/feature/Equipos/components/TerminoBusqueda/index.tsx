@@ -3,6 +3,7 @@ import { InfoContainer, TerminoContainer } from './styles';
 import { Button } from '../../../../shared/components/Button/index';
 import React from 'react';
 import { SearchEquipments } from '../../../../core/redux/reductores/Equipment/EquipmentReducer';
+import { useTheme } from 'styled-components';
 
 interface Props{
     getEquipmentsByPage: (page?: number) => void;
@@ -10,6 +11,8 @@ interface Props{
     searchEquipments:SearchEquipments;
 }
 export const TerminoBusqueda = ({searchEquipments,getEquipmentsByPage,getCurrentPage}:Props) => {
+
+
   const {term,filteredEquipments} = searchEquipments;
   let msg:string;
   filteredEquipments.length 

@@ -4,85 +4,113 @@
       "codigo": 615,
       "nombre": "Licuadora",
       "ubicacion": "almacen",
+      "fecha": "2022-02-15T05:00:00.000Z",
       "id": 1
     },
     {
       "codigo": 7894321,
       "nombre": "Televisor",
       "ubicacion": "laboratorio",
+      "fecha": "2022-02-13T05:00:00.000Z",
       "id": 2
     },
     {
       "codigo": 61578,
       "nombre": "AirFriyer",
       "ubicacion": "almacen",
+      "fecha": "2022-02-12T05:00:00.000Z",
       "id": 3
     },
     {
       "codigo": 615233,
       "nombre": "Cafetera",
       "ubicacion": "fabrica",
+      "fecha": "2022-02-10T05:00:00.000Z",
       "id": 4
     },
     {
       "codigo": 45067891,
       "nombre": "mixer",
       "ubicacion": "laboratorio",
+      "fecha": "2022-02-09T05:00:00.000Z",
       "id": 5
     },
     {
       "codigo": 111353,
       "nombre": "picatodo",
       "ubicacion": "fabrica",
+      "fecha": "2022-02-08T05:00:00.000Z",
       "id": 6
     },
     {
       "codigo": 2691,
       "nombre": "olla",
       "ubicacion": "laboratorio",
+      "fecha": "2022-02-07T05:00:00.000Z",
       "id": 7
     },
     {
       "codigo": 316532,
       "nombre": "computador",
       "ubicacion": "almacen",
+      "fecha": "2022-02-06T05:00:00.000Z",
       "id": 8
     },
     {
       "codigo": 7601,
       "nombre": "laptop",
       "ubicacion": "laboratorio",
+      "fecha": "2022-02-05T05:00:00.000Z",
       "id": 9
     },
     {
       "codigo": 113116,
       "nombre": "ventilador",
       "ubicacion": "almacen",
+      "fecha": "2022-02-03T05:00:00.000Z",
       "id": 10
     },
     {
       "codigo": 51866021,
       "nombre": "Monitor",
       "ubicacion": "fabrica",
+      "fecha": "2022-02-03T05:00:00.000Z",
       "id": 11
     },
     {
       "codigo": 300890,
       "nombre": "Plancha",
       "ubicacion": "laboratorio",
+      "fecha": "2022-01-28T05:00:00.000Z",
       "id": 12
     },
     {
       "codigo": 1245,
       "nombre": "gamer",
       "ubicacion": "almacen",
+      "fecha": "2022-01-25T05:00:00.000Z",
       "id": 14
     },
     {
       "codigo": 121541,
       "nombre": "Vaso2",
       "ubicacion": "fabrica",
+      "fecha": "2022-01-27T05:00:00.000Z",
       "id": 15
+    },
+    {
+      "codigo": 4851,
+      "nombre": "Licuadora",
+      "ubicacion": "fabrica",
+      "fecha": "2022-01-26T05:00:00.000Z",
+      "id": 16
+    },
+    {
+      "codigo": 47895,
+      "nombre": "Laptop",
+      "ubicacion": "laboratorio",
+      "fecha": "2022-01-27T16:59:00.000Z",
+      "id": 17
     }
   ]
 }

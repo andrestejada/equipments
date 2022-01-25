@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const CardBox = styled.li`
-    border: 1px solid #dbdbdb;
+    border: 1px solid ${({theme})=> theme.colors.borderColor};
     padding: 0.5rem;
     border-radius: 10px;
-    background-color: #f6f6f6;
+    background-color: ${({theme})=> theme.equipment.cardBg};
 `;
 
 export const CardSecction =styled.div`

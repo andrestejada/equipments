@@ -5,7 +5,7 @@ describe('testing in the util filter search term fuction', () => {
   it('should be return one object with the correct term search', () => {
     const termsFiltered = filterSearchTerm(testDataPagination, 'li');
     expect(termsFiltered).toEqual([
-      { codigo: 456, nombre: 'licuadora', ubicacion: 'fabrica', id: 2 },
+      { codigo: 456, nombre: 'licuadora', ubicacion: 'fabrica', id: 2 ,'fecha': '2022-01-21T05:00:00.000Z'},
     ]);
   });
 

@@ -24,18 +24,18 @@ interface Props {
 }
 export const GestionEquipos = ({
   addNewEquipment,
-  getEquipmentsByPage,
-  deleteEquipment,
-  selectEquipment,
-  editEquipment,
-  getEquipmentBySearch,
-  getCurrentPage,
   allEquipments,
-  equipmentSelected,
-  totalCount,
+  changePageTermSearch,
   currentPage,
+  deleteEquipment,
+  editEquipment,
+  equipmentSelected,
+  getCurrentPage,
+  getEquipmentBySearch,
+  getEquipmentsByPage,
   searchEquipments,
-  changePageTermSearch
+  selectEquipment,
+  totalCount,
 }: Props) => {
   useEffect(() => {
     getEquipmentsByPage();

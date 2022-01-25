@@ -16,7 +16,7 @@ export const useError = () => {
               setError(initialvalues);
           }, 5000);
       }
-  }, [error]);
+  }, [error,setError]);
   return {
       msg,
       error,

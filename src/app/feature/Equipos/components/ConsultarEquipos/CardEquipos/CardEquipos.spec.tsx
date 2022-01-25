@@ -1,6 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 import { CardEquipos } from './index';
 import React from 'react';
+import { ThemeCustomProvider } from '../../../../../themes/ThemeProvider';
 import { newEquipmentID } from '../../../../../shared/fixture/testData';
 
 describe('testing in the CardEquipos component', () => {
@@ -9,26 +10,31 @@ describe('testing in the CardEquipos component', () => {
     const getAllEquipments = jest.fn();
 
     let wrapperComponent = render(
-        <CardEquipos
-            allEquipments={[newEquipmentID]} 
-            currentPage={2}
-            getEquipmentsByPage={getAllEquipments}
-            {...newEquipmentID}
-            deleteEquipment={deleteEquipment}
-            selectEquipment={selectEquipment}
+        <ThemeCustomProvider>
+        <CardEquipos 
+        {...newEquipmentID}
+        deleteEquipment={deleteEquipment}
+        selectEquipment={selectEquipment}
+        allEquipments={[newEquipmentID]} 
+        currentPage={2}
+        getEquipmentsByPage={getAllEquipments}
         />
+    </ThemeCustomProvider>
     );
 
     beforeEach(()=>{
         wrapperComponent = render(
-            <CardEquipos 
+            <ThemeCustomProvider>
+                <CardEquipos 
                 {...newEquipmentID}
                 deleteEquipment={deleteEquipment}
                 selectEquipment={selectEquipment}
                 allEquipments={[newEquipmentID]} 
                 currentPage={2}
                 getEquipmentsByPage={getAllEquipments}
-            />);
+                />
+            </ThemeCustomProvider>
+            );
         jest.clearAllMocks();
     });
     
@@ -51,17 +57,21 @@ describe('testing in the CardEquipos component', () => {
             codigo:456,
             nombre:'bascula2',
             ubicacion:'almacen2',
+            fecha: '2022-01-25T05:00:00.000Z',
             id:2
         };
         const wrapperComponent2 = render(
-            <CardEquipos
-                allEquipments={[equipment2,newEquipmentID]} 
-                currentPage={2}
-                getEquipmentsByPage={getAllEquipments}
-                {...equipment2}
-                deleteEquipment={deleteEquipment}
-                selectEquipment={selectEquipment}
-            />
+            <ThemeCustomProvider>
+
+                <CardEquipos
+                    allEquipments={[equipment2,newEquipmentID]} 
+                    currentPage={2}
+                    getEquipmentsByPage={getAllEquipments}
+                    {...equipment2}
+                    deleteEquipment={deleteEquipment}
+                    selectEquipment={selectEquipment}
+                />
+            </ThemeCustomProvider>
         );
         const button = wrapperComponent2.getAllByRole('button',{name:'Eliminar'});        
         fireEvent.click(button[1]);
