@@ -114,13 +114,16 @@ describe('form crear Equipos', () => {
 
      const button = screen.getByText('Editar');
      const codigo =  screen.getByPlaceholderText(/ingresa un codigo/i);
+     const fecha = screen.getByRole('fecha');
      userEvent.type(codigo,'456');
+     userEvent.type(fecha,new Date().toISOString().slice(0,10));
      userEvent.click(button);
      await screen.findByPlaceholderText(/Ingresa un codigo/i);
+
      expect(editEquipment).toHaveBeenCalled();
      expect(editEquipment).toHaveBeenCalledWith({
         codigo: 456,
-        fecha: new Date('2022-01-25T05:00:00.000Z'),        
+        fecha: expect.any(Date),        
         id: 1,
         nombre: 'bascula',
         ubicacion: 'almacen',

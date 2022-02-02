@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Avartar } from '../Avartar';
 import {GiHamburgerMenu } from 'react-icons/gi';
 import {IoMdClose } from 'react-icons/io';
 import Logo from '../../../../assets/img/logo-equipos.png';
@@ -10,7 +11,8 @@ import { Switch } from '../Switch/index';
 export const Navigation = () => {
     const routes =[
         { label: 'Home', url: '/' },
-        { label: 'Equipos', url: '/equipos' },
+        { label: 'Login', url: '/login' },
+        { label: 'Equipos', url: '/Equipos' },
         { label: 'Productos', url: '/Productos' },
     ];
     const [toggle, setToggle] = useState(false);
@@ -36,6 +38,7 @@ export const Navigation = () => {
                 open={toggle}
                 close={()=>setToggle(false)} 
             />
+            <Avartar/>
         </NavigationContainer>
     );
 };

@@ -10,8 +10,7 @@ function App() {
   return (
     <GlobalErrorBoundary>
       <Provider store={store}>
-        <ThemeCustomProvider>
-          
+        <ThemeCustomProvider>          
           <AppRouter />
         </ThemeCustomProvider>
       </Provider>
